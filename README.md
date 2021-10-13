@@ -1,5 +1,5 @@
 # weather-or-not
 README for the project
 
-##TODO
+## TODO
 - [ ] Start the project
