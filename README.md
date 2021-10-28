@@ -2,4 +2,4 @@
 README for the project
 
 ## TODO
-- [ ] Start the project
+- [x] Start the project
