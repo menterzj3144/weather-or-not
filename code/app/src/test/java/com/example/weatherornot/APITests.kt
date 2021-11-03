@@ -6,7 +6,7 @@ import org.junit.Test
  * Tests for the API wrapper class
  */
 class APITests {
-    private val api = APIWrapper(44.811348, -91.498497)
+    private val api = APIWrapper(44.811348, -91.498497) //EC
 
     @Test
     fun test_timezone() {
