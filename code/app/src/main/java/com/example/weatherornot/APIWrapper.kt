@@ -16,6 +16,7 @@ class APIWrapper(val lat: Double, val lon: Double) {
         weeklyWeather = ArrayList()
         hourlyWeather = ArrayList()
 
+        //for each day in the week
         var i = 0
         while (i < 7) {
             //use DailyWeather objects since there is different information needed
@@ -23,8 +24,9 @@ class APIWrapper(val lat: Double, val lon: Double) {
             i++
         }
 
+        //for 48 hours
         i = 0
-        while (i < 24) {
+        while (i < 48) {
             hourlyWeather.add(CurrentWeather(0, -500, -1, ""))
             i++
         }
