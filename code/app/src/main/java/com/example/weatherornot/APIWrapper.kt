@@ -1,5 +1,13 @@
 package com.example.weatherornot
 
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+
+
+fun main() {
+    APIWrapper(44.811348, -91.498497)
+}
 
 class APIWrapper(val lat: Double, val lon: Double) {
     val currentWeather: CurrentWeather
@@ -8,7 +16,16 @@ class APIWrapper(val lat: Double, val lon: Double) {
 
 
     init {
-        //make api call
+        val apiKey = "345319f45656517a0f88de5d5cdf0a7d"
+
+        val apiURL: String = "https://api.openweathermap.org/data/2.5/onecall?appid=$apiKey" +
+                "&lat=$lat&lon=$lon"
+
+        // make api call.
+
+        val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, apiURL, null,
+            { response -> print(response.toString())},
+            { error -> print("error! reason: $error") })
 
         //pass in JSON information to CurrentWeather objects so that it's easier to return them and
         // access them outside of the wrapper
