@@ -15,7 +15,10 @@
         android:id="@+id/navigation_weekly"
         android:icon="@drawable/ic_baseline_view_week_24"
         android:title="@string/weekly"/>
-
+    <item
+        android:id="@+id/navigation_suggestAct"
+        android:icon="@drawable/ic_baseline_directions_run_24"
+        android:title="@string/activities" />
 
 
 </menu>
