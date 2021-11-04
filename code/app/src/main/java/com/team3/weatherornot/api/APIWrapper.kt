@@ -1,7 +1,6 @@
-package com.example.weatherornot
+package com.team3.weatherornot.api
 
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 
 

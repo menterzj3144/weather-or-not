@@ -1,5 +1,6 @@
-package com.example.weatherornot
+package com.team3.weatherornot
 
+import com.team3.weatherornot.api.APIWrapper
 import org.junit.Test
 
 /**

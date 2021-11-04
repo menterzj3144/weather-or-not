@@ -2,29 +2,325 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="56dp"
+        >
+        <!--Sunday Weather Row -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <!--Day of the week name -->
+            <TextView
+                android:id="@+id/sun"
+                style="@style/dayOfTheWeek"
+                android:text="@string/sunday"
+                />
+            <!--API INFORMATION NEEDED-->
+            <TextView
+                style="@style/icon"
+                android:text="icon"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/percent"
+                android:text="@string/percent"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:id="@+id/lowHighTemps"
+                style="@style/lowHighTemps"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text=""
+                app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text="@string/high"
+                />
+
+        </LinearLayout>
+
+        <!--Monday Weather Row -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+            <!--Day of the week name -->
+            <TextView
+                android:id="@+id/mon"
+                style="@style/dayOfTheWeek"
+                android:text="@string/monday"
+                />
+            <!--API INFORMATION NEEDED-->
+            <TextView
+                style="@style/icon"
+                android:text="icon"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/percent"
+                android:text="@string/percent"
+                android:gravity="center"
+                />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text=""
+                app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text="@string/high"
+                />
+
+        </LinearLayout>
+
+        <!--Tuesday Weather Row -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <!--Day of the week name -->
+
+            <TextView
+                android:id="@+id/tues"
+                style="@style/dayOfTheWeek"
+                android:text="@string/tuesday"
+                />
+            <!-- API INFORMATION NEEDED-->
+            <TextView
+                style="@style/icon"
+                android:text="icon"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/percent"
+                android:text="@string/percent"
+                android:gravity="center"
+                />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text=""
+                app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text="@string/high"
+                />
+
+        </LinearLayout>
+
+        <!--Wednesday Weather Row -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <!--Day of the week name -->
+
+            <TextView
+                android:id="@+id/wed"
+                style="@style/dayOfTheWeek"
+                android:text="@string/wednesday"
+                />
+            <!--API INFORMATION NEEDED-->
+            <TextView
+                style="@style/icon"
+                android:text="icon"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/percent"
+                android:text="@string/percent"
+                android:gravity="center"
+                />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text=""
+                app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text="@string/high"
+                />
+
+        </LinearLayout>
+
+
+        <!--Thursday Weather Row -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <!--Day of the week name -->
+            <TextView
+                android:id="@+id/thurs"
+                style="@style/dayOfTheWeek"
+                android:text="@string/thursday"
+                />
+            <!--API INFORMATION NEEDED-->
+            <TextView
+                style="@style/icon"
+                android:text="icon"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/percent"
+                android:text="@string/percent"
+                android:gravity="center"
+                />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text=""
+                app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text="@string/high"
+                />
+
+        </LinearLayout>
+
+        <!--Friday Weather Row -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <!--Day of the week name -->
+            <TextView
+                android:id="@+id/fri"
+                style="@style/dayOfTheWeek"
+                android:text="@string/friday"
+                />
+            <!--API INFORMATION NEEDED-->
+            <TextView
+                style="@style/icon"
+                android:text="icon"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/percent"
+                android:text="@string/percent"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/lowHighTemps"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text=""
+                app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text="@string/high"
+                />
+
+        </LinearLayout>
+
+        <!--Saturday Weather Row -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <!--Day of the week name -->
+            <TextView
+                android:id="@+id/sat"
+                style="@style/dayOfTheWeek"
+                android:text="@string/saturday"
+                />
+            <!--API INFORMATION NEEDED-->
+            <TextView
+                style="@style/icon"
+                android:text="icon"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/percent"
+                android:text="@string/percent"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/lowHighTemps"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text=""
+                app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
+
+            <TextView
+                style="@style/lowHighTemps"
+                android:text="@string/high"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/weekly_nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        android:background="@color/menubarcolor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/weekly_fragment"
-        android:name="com.example.myapplication.ui.WeeklyWeatherFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/nav_view"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

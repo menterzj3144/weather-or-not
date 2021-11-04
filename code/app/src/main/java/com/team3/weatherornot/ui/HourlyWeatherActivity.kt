@@ -1,0 +1,38 @@
+package com.team3.weatherornot.ui
+
+import android.app.Activity
+import android.content.Intent
+import android.os.Bundle
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationBarView
+import com.team3.weatherornot.myapplication.R
+
+class HourlyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener  {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.hourly_portrait_layout)
+
+        findViewById<NavigationBarView>(R.id.hourly_nav_view).setOnItemSelectedListener(this)
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.navigation_today -> {
+                changeActivity(TodayWeatherActivity())
+                return true
+            }
+            R.id.navigation_weekly -> {
+                changeActivity(WeeklyWeatherActivity())
+                return true
+            }
+        }
+        return false
+    }
+
+    private fun changeActivity(activity: Activity) {
+        val intent = Intent(this, activity::class.java)
+        startActivity(intent)
+    }
+}
