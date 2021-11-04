@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:paddingBottom="56dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.WeeklyWeatherFragment">
+    tools:context=".ui.WeeklyWeatherFragment"
+    android:id="@+id/weekly_fragment">
 
     <LinearLayout
         android:layout_width="match_parent"
