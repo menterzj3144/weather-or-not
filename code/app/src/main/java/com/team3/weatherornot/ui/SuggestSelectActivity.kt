@@ -8,13 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.navigation.NavigationBarView
 import com.team3.weatherornot.myapplication.R
 
-class WeeklyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
+class SuggestSelectActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.weekly_weather)
+        setContentView(R.layout.suggest_select_layout)
 
-        findViewById<NavigationBarView>(R.id.weekly_nav_view).setOnItemSelectedListener(this)
+        findViewById<NavigationBarView>(R.id.suggest_select_nav_view).setOnItemSelectedListener(this)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -27,8 +27,8 @@ class WeeklyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
                 changeActivity(HourlyWeatherActivity())
                 return true
             }
-            R.id.navigation_suggest_select -> {
-                changeActivity(SuggestSelectActivity())
+            R.id.navigation_weekly -> {
+                changeActivity(WeeklyWeatherActivity())
                 return true
             }
         }
@@ -39,5 +39,4 @@ class WeeklyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
         val intent = Intent(this, activity::class.java)
         startActivity(intent)
     }
-
 }

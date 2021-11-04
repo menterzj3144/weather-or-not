@@ -20,11 +20,15 @@ class HourlyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.navigation_today -> {
-                changeActivity(TodayWeatherActivity())
+                changeActivity(TodaysWeatherActivity())
                 return true
             }
             R.id.navigation_weekly -> {
                 changeActivity(WeeklyWeatherActivity())
+                return true
+            }
+            R.id.navigation_suggest_select -> {
+                changeActivity(SuggestSelectActivity())
                 return true
             }
         }

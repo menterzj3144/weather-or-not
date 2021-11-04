@@ -16,7 +16,7 @@
         android:icon="@drawable/ic_baseline_view_week_24"
         android:title="@string/weekly"/>
     <item
-        android:id="@+id/navigation_suggestAct"
+        android:id="@+id/navigation_suggest_select"
         android:icon="@drawable/ic_baseline_directions_run_24"
         android:title="@string/activities" />
 
