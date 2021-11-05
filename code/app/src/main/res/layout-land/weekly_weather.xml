@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingBottom="56dp"
+        >
+
+
+        <!--Sunday Weather Column -->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--Day of the week  -->
+            <TextView
+                android:id="@+id/sun"
+                style="@style/dayOfTheWeekLandscape"
+                android:text="@string/sunday" />
+
+            <!-- API Info needed  -->
+
+            <TextView
+                style="@style/iconLandscape"
+                android:text="icon"
+                />
+            <TextView
+                style="@style/percentLandscape"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text=""
+                app:drawableStartCompat="@drawable/ic_arrowdown2_foreground" />
+
+            <TextView
+                android:text="@string/high"
+                style="@style/lowHighLandScape"/>
+
+        </LinearLayout>
+
+        <!--Monday Weather Column -->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--Day of the week  -->
+
+            <TextView
+                android:id="@+id/mon"
+                style="@style/dayOfTheWeekLandscape"
+                android:text="@string/monday" />
+
+            <!-- API Info needed  -->
+
+            <TextView
+                style="@style/iconLandscape"
+                android:text="icon"
+                />
+            <TextView
+                style="@style/percentLandscape"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text=""
+                app:drawableStartCompat="@drawable/ic_arrowdown2_foreground" />
+
+            <TextView
+                android:text="@string/high"
+                style="@style/lowHighLandScape"/>
+
+        </LinearLayout>
+
+        <!--Tuesday Weather Column -->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--Day of the week  -->
+            <TextView
+                android:id="@+id/tues"
+                style="@style/dayOfTheWeekLandscape"
+                android:text="@string/tuesday" />
+
+            <!-- API Info needed  -->
+
+            <TextView
+                style="@style/iconLandscape"
+                android:text="icon"
+                />
+            <TextView
+                style="@style/percentLandscape"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text=""
+                app:drawableStartCompat="@drawable/ic_arrowdown2_foreground" />
+
+            <TextView
+                android:text="@string/high"
+                style="@style/lowHighLandScape"/>
+        </LinearLayout>
+
+        <!--Sunday Weather Column -->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--Day of the week  -->
+            <TextView
+                android:id="@+id/wed"
+                style="@style/dayOfTheWeekLandscape"
+                android:text="@string/wednesday" />
+
+            <!-- API Info needed  -->
+
+            <TextView
+                style="@style/iconLandscape"
+                android:text="icon"
+                />
+            <TextView
+                style="@style/percentLandscape"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text=""
+                app:drawableStartCompat="@drawable/ic_arrowdown2_foreground" />
+
+            <TextView
+                android:text="@string/high"
+                style="@style/lowHighLandScape"/>
+        </LinearLayout>
+
+        <!--Thursday Weather Column -->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--Day of the week  -->
+            <TextView
+                android:id="@+id/thurs"
+                style="@style/dayOfTheWeekLandscape"
+                android:text="@string/thursday" />
+
+            <!-- API Info needed  -->
+
+            <TextView
+                style="@style/iconLandscape"
+                android:text="icon"
+                />
+            <TextView
+                style="@style/percentLandscape"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text=""
+                app:drawableStartCompat="@drawable/ic_arrowdown2_foreground" />
+
+            <TextView
+                android:text="@string/high"
+                style="@style/lowHighLandScape"/>
+        </LinearLayout>
+
+        <!--Friday Weather Column -->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--Day of the week  -->
+            <TextView
+                android:id="@+id/fri"
+                style="@style/dayOfTheWeekLandscape"
+                android:text="@string/friday" />
+
+            <!-- API Info needed  -->
+
+            <TextView
+                style="@style/iconLandscape"
+                android:text="icon"
+                />
+            <TextView
+                style="@style/percentLandscape"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text=""
+                app:drawableStartCompat="@drawable/ic_arrowdown2_foreground" />
+
+            <TextView
+                android:text="@string/high"
+                style="@style/lowHighLandScape"/>
+        </LinearLayout>
+
+        <!--Saturday Weather Column -->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--Day of the week  -->
+            <TextView
+                android:id="@+id/sat"
+                style="@style/dayOfTheWeekLandscape"
+                android:text="@string/saturday" />
+
+            <!-- API Info needed  -->
+
+            <TextView
+                style="@style/iconLandscape"
+                android:text="icon"
+                />
+            <TextView
+                style="@style/percentLandscape"
+                android:gravity="center"
+                />
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text="@string/low"
+                />
+
+            <TextView
+                style="@style/lowHighLandScape"
+                android:text=""
+                app:drawableStartCompat="@drawable/ic_arrowdown2_foreground" />
+
+            <TextView
+                android:text="@string/high"
+                style="@style/lowHighLandScape"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/weekly_nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
