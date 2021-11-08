@@ -94,4 +94,10 @@
         <item name="android:layout_height">0dp</item>
     </style>
 
+
+    <!-- Portrait Styles Today's Weather -->
+    <style name="timeOfDayOverview">
+        <item name="android:background">@drawable/rounded_background</item>
+    </style>
+
 </resources>

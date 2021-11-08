@@ -21,5 +21,10 @@
     <string name="low">Low</string>
     <string name="percent">%</string>
     <string name="title_activity_bottom_nav">BottomNavActivity</string>
+    <string name="weather_condition_image">Weather condition image</string>
+    <string name="morning">Morning</string>
+    <string name="afternoon">Afternoon</string>
+    <string name="evening">Evening</string>
+    <string name="night">Night</string>
 
 </resources>
