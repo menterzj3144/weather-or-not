@@ -3,28 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <TableLayout
-        android:id="@+id/time_of_day_grid"
+        android:id="@+id/today_table"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="56dp"
-        android:stretchColumns="*"
         >
 
-        <!-- Current Weather Info Box -->
+
+        <!-- Row 1 -->
         <TableRow
             android:id="@+id/current_weather_box"
-            android:orientation="horizontal"
+            android:weightSum="2"
             android:background="@drawable/rounded_background"
-            android:weightSum="2">
+            android:layout_margin="5dp"
+            >
 
             <LinearLayout
                 android:id="@+id/current_weather_info"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:padding="20dp"
@@ -66,62 +65,61 @@
 
             <ImageView
                 android:id="@+id/current_weather_img"
+                android:src="@drawable/ic_baseline_wb_sunny_24"
                 android:layout_height="match_parent"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/weather_condition_image"
-                android:src="@drawable/ic_baseline_wb_sunny_24"
-                android:padding="20dp"/>
-
+                android:padding="20dp"
+                />
 
         </TableRow>
 
 
-        <TableRow>
+        <!-- Row 2 -->
+        <TableRow
+            android:layout_weight="1"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="5dp"
+            >
+
             <!-- Morning Weather Info Box -->
             <LinearLayout
                 android:id="@+id/morning_weather_overview"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                style="@style/timeOfDayOverview"
+                style="@style/timeOfDayInfoBox"
+                android:layout_marginEnd="2.5dp"
                 >
 
                 <TextView
                     android:id="@+id/morning_weather_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/infoBoxTextView"
                     android:text="@string/morning"
                     android:textSize="20sp"
-                    android:gravity="center"
+                    android:paddingTop="5dp"
                     />
 
                 <TextView
                     android:id="@+id/morning_weather_temp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/infoBoxTextView"
                     android:text="20 °F"
                     android:textSize="25sp"
-                    android:gravity="center"
-
                     />
 
                 <ImageView
                     android:id="@+id/morning_weather_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    style="@style/infoBoxTextView"
                     android:src="@drawable/ic_baseline_wb_sunny_24"
                     android:contentDescription="@string/weather_condition_image"
-                    android:gravity="center"
+                    android:layout_weight="13"
                     />
 
                 <TextView
                     android:id="@+id/morning_weather_precip"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/infoBoxTextView"
                     android:text="2% "
-                    android:textSize="15sp"
-                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:paddingBottom="5dp"
                     />
 
             </LinearLayout>
@@ -129,47 +127,39 @@
             <!-- Afternoon Weather Info Box -->
             <LinearLayout
                 android:id="@+id/afternoon_weather_overview"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                style="@style/timeOfDayOverview"
+                style="@style/timeOfDayInfoBox"
+                android:layout_marginStart="2.5dp"
                 >
 
                 <TextView
                     android:id="@+id/afternoon_weather_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/infoBoxTextView"
                     android:text="@string/afternoon"
                     android:textSize="20sp"
-                    android:gravity="center"
+                    android:paddingTop="5dp"
                     />
 
                 <TextView
                     android:id="@+id/afternoon_weather_temp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/infoBoxTextView"
                     android:text="20 °F"
                     android:textSize="25sp"
-                    android:gravity="center"
-
                     />
 
                 <ImageView
                     android:id="@+id/afternoon_weather_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    style="@style/infoBoxTextView"
                     android:src="@drawable/ic_baseline_wb_sunny_24"
                     android:contentDescription="@string/weather_condition_image"
-                    android:gravity="center"
+                    android:layout_weight="13"
                     />
 
                 <TextView
                     android:id="@+id/afternoon_weather_precip"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="2% "
-                    android:textSize="15sp"
-                    android:gravity="center"
+                    style="@style/infoBoxTextView"
+                    android:text="2%"
+                    android:textSize="20sp"
+                    android:paddingBottom="5dp"
                     />
 
             </LinearLayout>
@@ -177,7 +167,94 @@
         </TableRow>
 
 
+        <!-- Row 3 -->
+        <TableRow
+            android:layout_weight="1"
+            android:paddingBottom="5dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            >
 
+            <!-- Evening Weather Info Box -->
+            <LinearLayout
+                android:id="@+id/evening_weather_overview"
+                style="@style/timeOfDayInfoBox"
+                android:layout_marginEnd="2.5dp"
+                >
+
+                <TextView
+                    android:id="@+id/evening_weather_text"
+                    style="@style/infoBoxTextView"
+                    android:text="@string/evening"
+                    android:textSize="20sp"
+                    android:paddingTop="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/evening_weather_temp"
+                    style="@style/infoBoxTextView"
+                    android:text="20 °F"
+                    android:textSize="25sp"
+                    />
+
+                <ImageView
+                    android:id="@+id/evening_weather_img"
+                    style="@style/infoBoxTextView"
+                    android:src="@drawable/ic_baseline_wb_sunny_24"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:layout_weight="13"
+                    />
+
+                <TextView
+                    android:id="@+id/evening_weather_precip"
+                    style="@style/infoBoxTextView"
+                    android:text="2%"
+                    android:textSize="20sp"
+                    android:paddingBottom="5dp"
+                    />
+
+            </LinearLayout>
+
+            <!-- Night Weather Info Box -->
+            <LinearLayout
+                android:id="@+id/night_weather_overview"
+                style="@style/timeOfDayInfoBox"
+                android:layout_marginStart="2.5dp"
+                >
+
+                <TextView
+                    android:id="@+id/night_weather_text"
+                    style="@style/infoBoxTextView"
+                    android:text="@string/night"
+                    android:textSize="20sp"
+                    android:paddingTop="5dp"
+                    />
+
+                <TextView
+                    android:id="@+id/night_weather_temp"
+                    style="@style/infoBoxTextView"
+                    android:text="20 °F"
+                    android:textSize="25sp"
+                    />
+
+                <ImageView
+                    android:id="@+id/night_weather_img"
+                    style="@style/infoBoxTextView"
+                    android:src="@drawable/ic_baseline_wb_sunny_24"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:layout_weight="13"
+                    />
+
+                <TextView
+                    android:id="@+id/night_weather_precip"
+                    style="@style/infoBoxTextView"
+                    android:text="2%"
+                    android:textSize="20sp"
+                    android:paddingBottom="5dp"
+                    />
+
+            </LinearLayout>
+        </TableRow>
     </TableLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

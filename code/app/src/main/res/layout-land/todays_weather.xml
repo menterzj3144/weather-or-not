@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:paddingBottom="56dp"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1.5"
+            android:background="@drawable/rounded_background"
+            android:weightSum="34"
+            android:layout_margin="5dp"
+            >
+
+            <TextView
+                android:id="@+id/current_location_name"
+                style="@style/infoBoxTextView"
+                android:text="Eau Claire, WI"
+                android:textSize="20sp"
+                android:paddingTop="10dp"
+                tools:ignore="NestedWeights" />
+
+            <TextView
+                android:id="@+id/current_weather_temp"
+                style="@style/infoBoxTextView"
+                android:text="20 °F"
+                android:textSize="40sp"
+                />
+
+            <TextView
+                android:id="@+id/current_weather_condition"
+                style="@style/infoBoxTextView"
+                android:text="Sunny"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/current_weather_precip"
+                style="@style/infoBoxTextView"
+                android:text="2% "
+                android:textSize="20sp"
+                />
+
+            <ImageView
+                android:id="@+id/current_weather_img"
+                style="@style/infoBoxTextView"
+                android:src="@drawable/ic_baseline_wb_sunny_24"
+                android:layout_weight="30"
+                android:layout_height="0dp"
+                android:contentDescription="@string/weather_condition_image"
+                android:padding="5dp"
+                tools:ignore="NestedWeights" />
+
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".5"
+            >
+
+            <!-- Row 1 -->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2.5dp"
+                android:layout_marginEnd="5dp"
+                >
+
+                <!-- Morning Weather Info Box -->
+                <LinearLayout
+                    android:id="@+id/morning_weather_overview"
+                    style="@style/timeOfDayContainer"
+                    android:layout_marginEnd="2.5dp"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/current_weather_info"
+                        style="@style/timeOfDayContainerSection"
+                        android:padding="20dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/morning_weather_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/morning"
+                            android:textSize="20sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/morning_weather_temp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="20 °F"
+                            android:textSize="30sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/morning_weather_precip"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="2% "
+                            android:textSize="20sp"
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/morning_weather_img"
+                        style="@style/timeOfDayContainerSection"
+                        android:src="@drawable/ic_baseline_wb_sunny_24"
+                        android:contentDescription="@string/weather_condition_image"
+                        android:padding="10dp"
+                        />
+
+                </LinearLayout>
+
+                <!-- Afternoon Weather Info Box -->
+                <LinearLayout
+                    android:id="@+id/afternoon_weather_overview"
+                    style="@style/timeOfDayContainer"
+                    android:layout_marginStart="2.5dp"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/afternoon_weather_info"
+                        style="@style/timeOfDayContainerSection"
+                        android:padding="20dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/afternoon_weather_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/afternoon"
+                            android:textSize="20sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/afternoon_weather_temp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="20 °F"
+                            android:textSize="30sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/afternoon_weather_precip"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="2% "
+                            android:textSize="20sp"
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/afternoon_weather_img"
+                        style="@style/timeOfDayContainerSection"
+                        android:src="@drawable/ic_baseline_wb_sunny_24"
+                        android:contentDescription="@string/weather_condition_image"
+                        android:padding="10dp"
+                        />
+
+                </LinearLayout>
+
+            </TableRow>
+
+            <!-- Row 2 -->
+            <TableRow
+                android:layout_weight="1"
+                android:layout_marginTop="2.5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="5dp"
+                >
+
+                <!-- Evening Weather Info Box -->
+                <LinearLayout
+                    android:id="@+id/evening_weather_overview"
+                    style="@style/timeOfDayContainer"
+                    android:layout_marginEnd="2.5dp"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/evening_weather_info"
+                        style="@style/timeOfDayContainerSection"
+                        android:padding="20dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/evening_weather_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/evening"
+                            android:textSize="20sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/evening_weather_temp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="20 °F"
+                            android:textSize="30sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/evening_weather_precip"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="2% "
+                            android:textSize="20sp"
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/evening_weather_img"
+                        style="@style/timeOfDayContainerSection"
+                        android:src="@drawable/ic_baseline_wb_sunny_24"
+                        android:contentDescription="@string/weather_condition_image"
+                        android:padding="10dp"
+                        />
+
+                </LinearLayout>
+
+                <!-- Night Weather Info Box -->
+                <LinearLayout
+                    android:id="@+id/night_weather_overview"
+                    style="@style/timeOfDayContainer"
+                    android:layout_marginStart="2.5dp"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/night_weather_info"
+                        style="@style/timeOfDayContainerSection"
+                        android:padding="20dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/night_weather_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/night"
+                            android:textSize="20sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/night_weather_temp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="20 °F"
+                            android:textSize="30sp"
+                            />
+
+                        <TextView
+                            android:id="@+id/night_weather_precip"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="2% "
+                            android:textSize="20sp"
+                            />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/night_weather_img"
+                        style="@style/timeOfDayContainerSection"
+                        android:src="@drawable/ic_baseline_wb_sunny_24"
+                        android:contentDescription="@string/weather_condition_image"
+                        android:padding="10dp"
+                        />
+
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+
+    
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/today_nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
