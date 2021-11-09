@@ -1,18 +1,20 @@
 package com.team3.weatherornot.api
 
+import android.app.Application
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
-
+import com.android.volley.toolbox.Volley
 
 fun main() {
     APIWrapper(44.811348, -91.498497)
 }
 
-class APIWrapper(val lat: Double, val lon: Double) {
+class APIWrapper(val lat: Double, val lon: Double): Application() {
     val currentWeather: CurrentWeather
     val weeklyWeather: ArrayList<DailyWeather>
     val hourlyWeather: ArrayList<CurrentWeather>
 
+    private val requestQueue = Volley.newRequestQueue(this.applicationContext)
 
     init {
         val apiKey = "345319f45656517a0f88de5d5cdf0a7d"
@@ -25,6 +27,8 @@ class APIWrapper(val lat: Double, val lon: Double) {
         val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, apiURL, null,
             { response -> print(response.toString())},
             { error -> print("error! reason: $error") })
+
+        requestQueue.add(jsonObjectRequest)
 
         //pass in JSON information to CurrentWeather objects so that it's easier to return them and
         // access them outside of the wrapper
