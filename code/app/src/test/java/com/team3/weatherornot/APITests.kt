@@ -1,13 +1,18 @@
 package com.team3.weatherornot
 
-import com.team3.weatherornot.api.APIWrapper
+import com.team3.weatherornot.api.Weather
 import org.junit.Test
+// import androidx.test.core.app.ApplicationProvider
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+
 
 /**
  * Tests for the API wrapper class
  */
+@RunWith(RobolectricTestRunner::class)
 class APITests {
-    private val api = APIWrapper(44.811348, -91.498497) //EC
+    private val api = Weather(44.811348, -91.498497) //EC
 
     @Test
     fun test_timezone() {

@@ -4,12 +4,14 @@ import android.app.Application
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import org.json.JSONObject
 
 fun main() {
-    APIWrapper(44.811348, -91.498497)
+    Weather(44.811348, -91.498497)
 }
 
-class APIWrapper(val lat: Double, val lon: Double): Application() {
+class Weather(private val lat: Double, private val lon: Double): Application() {
+    private val metadata: JSONObject = JSONObject()
     val currentWeather: CurrentWeather
     val weeklyWeather: ArrayList<DailyWeather>
     val hourlyWeather: ArrayList<CurrentWeather>
@@ -25,7 +27,7 @@ class APIWrapper(val lat: Double, val lon: Double): Application() {
         // make api call.
 
         val jsonObjectRequest = JsonObjectRequest(Request.Method.GET, apiURL, null,
-            { response -> print(response.toString())},
+            { response -> parseJSONObject(response)},
             { error -> print("error! reason: $error") })
 
         requestQueue.add(jsonObjectRequest)
@@ -52,9 +54,19 @@ class APIWrapper(val lat: Double, val lon: Double): Application() {
         }
     }
 
+    private fun parseJSONObject(obj: JSONObject) {
+        metadata.put("lat", obj.get("lat"))
+        metadata.put("lon", obj.get("lon"))
+        metadata.put("tz", obj.get("timezone"))
+        metadata.put("tz_offset", obj.get("timezone_offset"))
+        metadata.put("last_update", obj.getJSONObject("current").get("dt"))
+
+
+    }
+
 
     fun getTimeZone(): String {
-        return ""
+        return metadata.get("tz").toString()
     }
 
     fun getSpecificDayWeather(day: Int): DailyWeather {
