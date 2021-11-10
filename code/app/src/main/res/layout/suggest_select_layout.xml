@@ -15,55 +15,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 
-    <LinearLayout
+    <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#CFF0FF">
+        android:id="@+id/viewPager"
+         />
 
-        <SearchView
-            android:id="@+id/search_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@color/white"/>
-
-        <ListView
-            android:id="@+id/list_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginLeft="16dp"
-            />
-
-        <TextView
-            android:id="@+id/suggest_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Date Searched or Today's Date"
-            android:textSize="24sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            />
-
-        <TextView
-            android:id="@+id/suggest_label"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:text="Suggested Activities:"
-            android:textSize="24sp"
-            android:textColor="@color/black"
-            android:gravity="bottom"/>
-
-        <TextView
-            android:id="@+id/suggest_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Here is where the list of activities will be"
-            android:textColor="@color/black"
-            android:textSize="24dp"
-            android:gravity="center"/>
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

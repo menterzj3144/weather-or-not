@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#CFF0FF">
+
+    <LinearLayout
+        android:id="@+id/suggest_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <SearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/white"/>
+
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            />
+
+        <TextView
+            android:id="@+id/suggest_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Date Searched or Today's Date"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/suggest_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Suggested Activities:"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:gravity="bottom"/>
+
+        <TextView
+            android:id="@+id/suggest_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text="Here is where the list of activities will be"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
+
+
+
+    </LinearLayout>
+
+
+
+</FrameLayout>
+

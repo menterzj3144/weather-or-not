@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#CFF0FF">
+
+    <LinearLayout
+        android:id="@+id/select_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <SearchView
+            android:id="@+id/search_view_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/white"/>
+
+        <ListView
+            android:id="@+id/list_view_activity"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            />
+
+        <TextView
+            android:id="@+id/select_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Activity Searched"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/select_label"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Suggested Dates for Activity:"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:gravity="bottom"/>
+
+        <TextView
+            android:id="@+id/select_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:text="Here is where the list of dates for searched activity will be"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            android:gravity="center"/>
+
+
+    </LinearLayout>
+
+
+
+</FrameLayout>
+
