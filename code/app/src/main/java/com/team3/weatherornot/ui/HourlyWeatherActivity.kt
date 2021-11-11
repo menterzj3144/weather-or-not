@@ -12,7 +12,7 @@ class HourlyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.hourly_portrait_layout)
+        setContentView(R.layout.hourly_weather)
 
         findViewById<NavigationBarView>(R.id.hourly_nav_view).setOnItemSelectedListener(this)
     }

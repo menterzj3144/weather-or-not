@@ -59,10 +59,12 @@ class APITests {
     @Test
     fun test_getHourlyWeatherForHours() {
         val hourly = api.getHourlyWeatherForHours(10)
+        assert(hourly.size != null)
         assert(hourly.size == 10)
 
         for (hour in hourly) {
             assert(hour.time > 0)
+            assert(hour != null)
 
             val temp = hour.temp
             assert(temp > -200)
