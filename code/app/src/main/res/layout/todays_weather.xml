@@ -41,7 +41,7 @@
                     android:id="@+id/current_weather_temp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="20 °F"
+                    android:text="test text"
                     android:textSize="40sp"
                     />
 
