@@ -1,4 +1,4 @@
-package com.example.searchviewexample
+package com.team3.weatherornot.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment

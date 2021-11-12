@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.navigation.NavigationBarView
+import com.team3.weatherornot.api.Weather
 import com.team3.weatherornot.myapplication.R
 
 class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
@@ -15,6 +16,8 @@ class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
         setContentView(R.layout.todays_weather)
 
         findViewById<NavigationBarView>(R.id.today_nav_view).setOnItemSelectedListener(this)
+
+        val api = Weather(44.811348, -91.498497, this) //EC
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

@@ -7,7 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.example.searchviewexample.ViewPagerAdapter
+import com.team3.weatherornot.ui.ViewPagerAdapter
 import com.google.android.material.navigation.NavigationBarView
 import com.team3.weatherornot.myapplication.R
 
