@@ -7,12 +7,12 @@ import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.navigation.NavigationBarView
-import com.team3.weatherornot.api.Weather
-import com.team3.weatherornot.myapplication.R
-import org.json.JSONObject
+import com.team3.weatherornot.api.APIManager
+import com.team3.weatherornot.R
+import com.team3.weatherornot.api.WeatherAPIListener
+import com.team3.weatherornot.weather.Weather
 
 class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
-    var response: JSONObject = JSONObject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -20,18 +20,21 @@ class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
 
         findViewById<NavigationBarView>(R.id.today_nav_view).setOnItemSelectedListener(this)
 
-        val tv = findViewById<TextView>(R.id.current_weather_temp)
+        val tempTV = findViewById<TextView>(R.id.current_weather_temp)
+        val conditionTV = findViewById<TextView>(R.id.current_weather_condition)
+        val precipTV = findViewById<TextView>(R.id.current_weather_precip)
 
 
         //check if weather object exists. If it doesn't, make api call. If it does, use that instead
-        val api = Weather(this)
-        val lambda = {
-                json: JSONObject ->
-            response = json
-            //set text views then set weather object
-            tv.text = response.get("timezone").toString()
-        }
-        api.executeRequest(44.811348, -91.498497, lambda)
+        APIManager.getInstance()!!.getWeatherForLocation(44.811348, -91.498497, object :
+            WeatherAPIListener<Weather> {
+            override fun getResult(result: Weather) {
+                val current = result.currentWeather
+                tempTV.text = current.temp.toString()
+                conditionTV.text = current.condition
+                precipTV.text = current.precip.toString()
+            }
+        })
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

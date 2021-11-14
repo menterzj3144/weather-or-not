@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.navigation.NavigationBarView
-import com.team3.weatherornot.myapplication.R
+import com.team3.weatherornot.R
 
 class HourlyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener  {
     override fun onCreate(savedInstanceState: Bundle?) {

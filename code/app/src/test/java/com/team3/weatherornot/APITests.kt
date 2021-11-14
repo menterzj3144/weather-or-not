@@ -1,6 +1,6 @@
 package com.team3.weatherornot
 
-import com.team3.weatherornot.api.Weather
+import com.team3.weatherornot.weather.Weather
 import org.junit.Test
 // import androidx.test.core.app.ApplicationProvider
 
