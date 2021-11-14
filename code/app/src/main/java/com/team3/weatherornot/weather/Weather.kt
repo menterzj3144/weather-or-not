@@ -6,7 +6,7 @@ import org.json.JSONObject
 /**
  * Weather contains all of the necessary weather information from an API call
  */
-class Weather(json: JSONObject) {
+class Weather(val lat: Double, val lon: Double, json: JSONObject) {
     var currentWeather: CurrentWeather = CurrentWeather(0, -500.0, -1.0, "")
     val weeklyWeather: ArrayList<DailyWeather> = ArrayList()
     val hourlyWeather: ArrayList<CurrentWeather> = ArrayList()
