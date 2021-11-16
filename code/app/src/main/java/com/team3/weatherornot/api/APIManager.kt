@@ -11,6 +11,10 @@ import com.team3.weatherornot.weather.Weather
  * Code found at https://stackoverflow.com/questions/28172496/android-volley-how-to-isolate-requests-in-another-class
  *
  * Singleton class for making API calls using application context
+ *
+ * @constructor Create [APIManager]
+ *
+ * @param context the application context
  */
 class APIManager private constructor(context: Context) {
     private val apiKey = "345319f45656517a0f88de5d5cdf0a7d"
@@ -21,8 +25,12 @@ class APIManager private constructor(context: Context) {
 
 
     /**
-     * Gets the weather information for the passed in location and calls the listener function to
-     * get the result back to the caller
+     * Calls the open weather API to get the weather information for the passed in location, then
+     * calls the listener function to get the result back to the caller
+     *
+     * @param lat the latitude coordinate of the location
+     * @param lon the longitude coordinate of the location
+     * @param listener the listener function to be called when the API returns
      */
     fun getWeatherForLocationAPI(lat: Double, lon: Double, listener: WeatherAPIListener<Weather>) {
         //if there's already weather data for this location, return that
@@ -45,8 +53,7 @@ class APIManager private constructor(context: Context) {
     }
 
     /**
-     * getWeatherForLocation returns the weather for a specified location if it exist in the application
-     * memory
+     * Returns the weather for a specified location if it exist in the application memory
      *
      * @param lat the latitude coordinate of the location
      * @param lon the longitude coordinate of the location
@@ -62,6 +69,13 @@ class APIManager private constructor(context: Context) {
 
     companion object {
         private var instance: APIManager? = null
+
+        /**
+         * Instantiates the APIManager object for the app
+         *
+         * @param context the application context
+         * @return the instance of the APIManager
+         */
         @Synchronized
         fun instantiate(context: Context): APIManager? {
             if (null == instance) instance = APIManager(context)
@@ -69,6 +83,11 @@ class APIManager private constructor(context: Context) {
         }
 
         //this is so you don't need to pass context each time
+        /**
+         * Returns the instance of the APIManager for the application
+         *
+         * @return the instance of the APIManager
+         */
         @JvmStatic
         @Synchronized
         fun getInstance(): APIManager? {

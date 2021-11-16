@@ -11,6 +11,11 @@ import com.team3.weatherornot.ui.ViewPagerAdapter
 import com.google.android.material.navigation.NavigationBarView
 import com.team3.weatherornot.R
 
+/**
+ * The activity for the suggest/select activity view
+ *
+ * @constructor Create empty constructor for suggest/select weather activity
+ */
 class SuggestSelectActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +34,12 @@ class SuggestSelectActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
         viewPager.adapter = adapter2
     }
 
+    /**
+     * Switches to an activity based on which menu item was selected
+     *
+     * @param item the menu item that was selected
+     * @return a success boolean
+     */
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.navigation_today -> {
@@ -47,6 +58,11 @@ class SuggestSelectActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
         return false
     }
 
+    /**
+     * Starts the specified activity
+     *
+     * @param activity the activity to be started
+     */
     private fun changeActivity(activity: Activity) {
         val intent = Intent(this, activity::class.java)
         startActivity(intent)

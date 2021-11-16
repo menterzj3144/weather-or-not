@@ -12,6 +12,11 @@ import com.team3.weatherornot.R
 import com.team3.weatherornot.api.WeatherAPIListener
 import com.team3.weatherornot.weather.Weather
 
+/**
+ * The activity for the today's weather view
+ *
+ * @constructor Create empty constructor for today's weather activity
+ */
 class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +39,11 @@ class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
         }
     }
 
+    /**
+     * Take the passed in weather information and display it on the app
+     *
+     * @param weather the weather information to be displayed
+     */
     private fun populateTextViews(weather: Weather) {
         val tempTV = findViewById<TextView>(R.id.current_weather_temp)
         val conditionTV = findViewById<TextView>(R.id.current_weather_condition)
@@ -45,6 +55,12 @@ class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
         precipTV.text = current.precip.toString()
     }
 
+    /**
+     * Switches to an activity based on which menu item was selected
+     *
+     * @param item the menu item that was selected
+     * @return a success boolean
+     */
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.navigation_hourly -> {
@@ -63,6 +79,11 @@ class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
         return false
     }
 
+    /**
+     * Starts the specified activity
+     *
+     * @param activity the activity to be started
+     */
     private fun changeActivity(activity: Activity) {
         val intent = Intent(this, activity::class.java)
         startActivity(intent)
