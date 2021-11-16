@@ -2,21 +2,44 @@ package com.team3.weatherornot
 
 import com.team3.weatherornot.weather.Weather
 import org.junit.Test
+import androidx.test.core.app.ApplicationProvider
+import android.content.Context
+import org.junit.Before
+import org.junit.runner.RunWith
+import org.mockito.junit.MockitoJUnitRunner
+import org.mockito.kotlin.mock
+import org.robolectric.RobolectricTestRunner
+//import org.robolectric.shadows.httpclient
 // import androidx.test.core.app.ApplicationProvider
-
+import com.team3.weatherornot.api.APIManager
+import com.team3.weatherornot.api.WeatherAPIListener
 
 /**
  * Tests for the API wrapper class
  */
+@RunWith(RobolectricTestRunner::class)
 class APITests {
-    private val api = Weather(44.811348, -91.498497) //EC
+    private val mockContext: Context = mock()
+
+    private val apiManager: APIManager? = APIManager.getInstance(mockContext)
+
+    //private val api =
+
+        //Weather(44.811348, -91.498497) //EC
 
     @Test
     fun test_timezone() {
-        val timezone = api.getTimeZone()
-        assert(timezone == "America/Chicago")
+
+
+        val timezone = apiManager?.getWeatherForLocation(44.811348, -91.498497, object: WeatherAPIListener<Weather> {
+            override fun getResult(result: Weather) {
+                assert(result.timezone == "America/Chicago")
+            }
+        })
+
     }
 
+    /*
     @Test
     fun test_getCurrentWeather() {
         val current = api.currentWeather
@@ -119,4 +142,5 @@ class APITests {
 
         assert(day.condition.isNotBlank())
     }
+     */
 }
