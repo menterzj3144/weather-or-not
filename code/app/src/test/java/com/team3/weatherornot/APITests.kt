@@ -13,6 +13,8 @@ import org.robolectric.RobolectricTestRunner
 // import androidx.test.core.app.ApplicationProvider
 import com.team3.weatherornot.api.APIManager
 import com.team3.weatherornot.api.WeatherAPIListener
+import com.team3.weatherornot.weather.CurrentWeather
+import com.team3.weatherornot.weather.DailyWeather
 
 /**
  * Tests for the API wrapper class
@@ -23,26 +25,38 @@ class APITests {
 
     private val apiManager: APIManager? = APIManager.instantiate(mockContext)
 
-    //private val api =
+    lateinit var timezone: String
+    lateinit var current: CurrentWeather
+    lateinit var hourly: ArrayList<CurrentWeather>
+    lateinit var hourlySubset: ArrayList<CurrentWeather>
+    lateinit var daily: ArrayList<DailyWeather>
+    lateinit var day: DailyWeather
+
+
+
+
+    var instantiation = apiManager?.getWeatherForLocationAPI(44.811348, -91.498497, object: WeatherAPIListener<Weather> {
+        override fun getResult(result: Weather) {
+            timezone = result.timezone
+            current = result.currentWeather
+            hourly = result.hourlyWeather
+            hourlySubset = result.getHourlyWeatherForHours(10)
+            daily = result.weeklyWeather
+            day = result.getSpecificDayWeather(2)
+        }
+    })
 
         //Weather(44.811348, -91.498497) //EC
 
     @Test
     fun test_timezone() {
-
-
-        val timezone = apiManager?.getWeatherForLocationAPI(44.811348, -91.498497, object: WeatherAPIListener<Weather> {
-            override fun getResult(result: Weather) {
-                assert(result.timezone == "America/Chicago")
-            }
-        })
-
+        assert(timezone == "America/Chicago")
     }
 
-    /*
+
     @Test
     fun test_getCurrentWeather() {
-        val current = api.currentWeather
+
         assert(current.time > 0)
 
         val temp = current.temp
@@ -58,7 +72,6 @@ class APITests {
 
     @Test
     fun test_getHourlyWeather() {
-        val hourly = api.hourlyWeather
         assert(hourly.size == 48)
 
         for (hour in hourly) {
@@ -78,7 +91,6 @@ class APITests {
 
     @Test
     fun test_getHourlyWeatherForHours() {
-        val hourly = api.getHourlyWeatherForHours(10)
         assert(hourly.size != null)
         assert(hourly.size == 10)
 
@@ -100,7 +112,6 @@ class APITests {
 
     @Test
     fun test_getWeeklyWeather() {
-        val daily = api.weeklyWeather
         assert(daily.size == 7)
 
         for (day in daily) {
@@ -124,8 +135,6 @@ class APITests {
 
     @Test
     fun test_getSpecificDayWeather() {
-        val day = api.getSpecificDayWeather(2)
-
         assert(day.time > 0)
 
         val minTemp = day.minTemp
@@ -142,5 +151,4 @@ class APITests {
 
         assert(day.condition.isNotBlank())
     }
-     */
 }
