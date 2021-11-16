@@ -10,6 +10,6 @@ class WeatherOrNotApp : Application() {
     override fun onCreate() {
         super.onCreate()
         println("App Created")
-        APIManager.getInstance(this)
+        APIManager.instantiate(this)
     }
 }

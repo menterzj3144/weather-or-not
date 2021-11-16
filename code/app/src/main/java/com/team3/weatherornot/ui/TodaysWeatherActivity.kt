@@ -20,21 +20,29 @@ class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
 
         findViewById<NavigationBarView>(R.id.today_nav_view).setOnItemSelectedListener(this)
 
+        val api = APIManager.getInstance()
+        val weather = api!!.getWeatherForLocation(44.811348, -91.498497)
+        if (weather != null) {
+            populateTextViews(weather)
+        } else {
+            api.getWeatherForLocationAPI(44.811348, -91.498497, object :
+                WeatherAPIListener<Weather> {
+                override fun getResult(result: Weather) {
+                    populateTextViews(result)
+                }
+            })
+        }
+    }
+
+    private fun populateTextViews(weather: Weather) {
         val tempTV = findViewById<TextView>(R.id.current_weather_temp)
         val conditionTV = findViewById<TextView>(R.id.current_weather_condition)
         val precipTV = findViewById<TextView>(R.id.current_weather_precip)
 
-
-        //check if weather object exists. If it doesn't, make api call. If it does, use that instead
-        APIManager.getInstance()!!.getWeatherForLocation(44.811348, -91.498497, object :
-            WeatherAPIListener<Weather> {
-            override fun getResult(result: Weather) {
-                val current = result.currentWeather
-                tempTV.text = current.temp.toString()
-                conditionTV.text = current.condition
-                precipTV.text = current.precip.toString()
-            }
-        })
+        val current = weather.currentWeather
+        tempTV.text = current.temp.toString()
+        conditionTV.text = current.condition
+        precipTV.text = current.precip.toString()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

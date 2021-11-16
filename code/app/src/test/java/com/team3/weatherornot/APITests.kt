@@ -21,7 +21,7 @@ import com.team3.weatherornot.api.WeatherAPIListener
 class APITests {
     private val mockContext: Context = mock()
 
-    private val apiManager: APIManager? = APIManager.getInstance(mockContext)
+    private val apiManager: APIManager? = APIManager.instantiate(mockContext)
 
     //private val api =
 
@@ -31,7 +31,7 @@ class APITests {
     fun test_timezone() {
 
 
-        val timezone = apiManager?.getWeatherForLocation(44.811348, -91.498497, object: WeatherAPIListener<Weather> {
+        val timezone = apiManager?.getWeatherForLocationAPI(44.811348, -91.498497, object: WeatherAPIListener<Weather> {
             override fun getResult(result: Weather) {
                 assert(result.timezone == "America/Chicago")
             }

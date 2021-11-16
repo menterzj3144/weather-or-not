@@ -24,35 +24,46 @@ class APIManager private constructor(context: Context) {
      * Gets the weather information for the passed in location and calls the listener function to
      * get the result back to the caller
      */
-    fun getWeatherForLocation(lat: Double, lon: Double, listener: WeatherAPIListener<Weather>) {
+    fun getWeatherForLocationAPI(lat: Double, lon: Double, listener: WeatherAPIListener<Weather>) {
         //if there's already weather data for this location, return that
-        if (weather != null && (lat == weather!!.lat && lon == weather!!.lon)) {
-            println("SAVED DATA")
-            listener.getResult(weather!!)
+        val apiURL: String = "https://api.openweathermap.org/data/2.5/onecall?appid=$apiKey" +
+                "&lat=$lat&lon=$lon&units=imperial"
+
+        println("API CALL")
+        // make api call.
+        val request = JsonObjectRequest(Request.Method.GET, apiURL, null,
+            {
+                weather = Weather(lat, lon, it)
+                listener.getResult(weather!!)
+            },
+            {
+                println("Error! $it")
+            }
+        )
+
+        requestQueue.add(request)
+    }
+
+    /**
+     * getWeatherForLocation returns the weather for a specified location if it exist in the application
+     * memory
+     *
+     * @param lat the latitude coordinate of the location
+     * @param lon the longitude coordinate of the location
+     * @return a Weather object for the specified location. Null if it does not exist
+     */
+    fun getWeatherForLocation(lat: Double, lon: Double): Weather? {
+        return if (weather != null && (weather!!.lat == lat && weather!!.lon == lon)) {
+            weather
         } else {
-            val apiURL: String = "https://api.openweathermap.org/data/2.5/onecall?appid=$apiKey" +
-                    "&lat=$lat&lon=$lon&units=imperial"
-
-            println("API CALL")
-            // make api call.
-            val request = JsonObjectRequest(Request.Method.GET, apiURL, null,
-                {
-                    weather = Weather(lat, lon, it)
-                    listener.getResult(weather!!)
-                },
-                {
-                    println("Error! $it")
-                }
-            )
-
-            requestQueue.add(request)
+            null
         }
     }
 
     companion object {
         private var instance: APIManager? = null
         @Synchronized
-        fun getInstance(context: Context): APIManager? {
+        fun instantiate(context: Context): APIManager? {
             if (null == instance) instance = APIManager(context)
             return instance
         }
