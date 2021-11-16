@@ -1,5 +1,7 @@
 package com.team3.weatherornot.weather
 
+import java.util.*
+
 /**
  * Stores the data for the weather at a given point in time
  *
@@ -9,5 +11,5 @@ package com.team3.weatherornot.weather
  * @property condition the sky condition for the day
  * @constructor Create [CurrentWeather]
  */
-class CurrentWeather(val time: Int, val temp: Double, val precip: Double, val condition: String) {
+class CurrentWeather(val time: Date, val temp: Int, val precip: Int, val condition: String) {
 }

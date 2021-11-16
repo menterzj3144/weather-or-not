@@ -10,6 +10,7 @@ import com.google.android.material.navigation.NavigationBarView
 import com.team3.weatherornot.api.APIManager
 import com.team3.weatherornot.R
 import com.team3.weatherornot.api.WeatherAPIListener
+import com.team3.weatherornot.weather.CurrentWeather
 import com.team3.weatherornot.weather.Weather
 
 /**
@@ -48,11 +49,20 @@ class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
         val tempTV = findViewById<TextView>(R.id.current_weather_temp)
         val conditionTV = findViewById<TextView>(R.id.current_weather_condition)
         val precipTV = findViewById<TextView>(R.id.current_weather_precip)
+        val morningTempTV = findViewById<TextView>(R.id.morning_weather_temp)
+        val morningPrecipTV = findViewById<TextView>(R.id.morning_weather_precip)
+        val afternoonTempTV = findViewById<TextView>(R.id.afternoon_weather_temp)
+        val afternoonPrecipTV = findViewById<TextView>(R.id.afternoon_weather_precip)
+        val eveningTempTV = findViewById<TextView>(R.id.evening_weather_temp)
+        val eveningPrecipTV = findViewById<TextView>(R.id.evening_weather_precip)
+        val nightTempTV = findViewById<TextView>(R.id.night_weather_temp)
+        val nightPrecipTV = findViewById<TextView>(R.id.night_weather_precip)
 
         val current = weather.currentWeather
-        tempTV.text = current.temp.toString()
+        println(current.time.toString())
+        tempTV.text = (current.temp.toString() + getString(R.string.degreesF))
         conditionTV.text = current.condition
-        precipTV.text = current.precip.toString()
+        precipTV.text = (current.precip.toString() + getString(R.string.percent))
     }
 
     /**

@@ -1,7 +1,12 @@
 package com.team3.weatherornot.weather
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import org.json.JSONArray
 import org.json.JSONObject
+import java.time.Instant
+import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Contains all of the necessary weather information from an API call
@@ -12,8 +17,9 @@ import org.json.JSONObject
  *
  * @param json the JSON object to be converted to a Weather object
  */
+@RequiresApi(Build.VERSION_CODES.O)
 class Weather(val lat: Double, val lon: Double, json: JSONObject) {
-    var currentWeather: CurrentWeather = CurrentWeather(0, -500.0, -1.0, "")
+    var currentWeather: CurrentWeather = CurrentWeather(Date(), -500, -1, "")
     val weeklyWeather: ArrayList<DailyWeather> = ArrayList()
     val hourlyWeather: ArrayList<CurrentWeather> = ArrayList()
     var timezone: String = ""
@@ -25,19 +31,26 @@ class Weather(val lat: Double, val lon: Double, json: JSONObject) {
         setDailyWeather(json.getJSONArray("daily"))
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun convertTimeToDate(time: Long): Date {
+        val instant = Instant.ofEpochSecond(time)
+        return Date.from(instant)
+    }
+
     /**
      * Initializes the current weather value with the correct values from the JSON object
      *
      * @param current the current weather portion of the JSON string
      * @param hour the current hour portion of the JSON string
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun setCurrentWeather(current: JSONObject, hour: JSONObject) {
-        val time = current.getInt("dt")
-        val temp = current.getDouble("temp")
-        val precip = hour.getDouble("pop")
+        val dt = convertTimeToDate(current.getLong("dt"))
+        val temp = current.getInt("temp")
+        val precip = hour.getInt("pop")
         val condition = current.getJSONArray("weather").getJSONObject(0).getString("main")
 
-        currentWeather = CurrentWeather(time, temp, precip, condition)
+        currentWeather = CurrentWeather(dt, temp, precip, condition)
     }
 
     /**
@@ -45,16 +58,17 @@ class Weather(val lat: Double, val lon: Double, json: JSONObject) {
      *
      * @param hourly the hourly weather JSON array
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun setHourlyWeather(hourly: JSONArray) {
         var i = 0
         while (i < 48) {
             val hour = hourly.getJSONObject(i)
-            val time = hour.getInt("dt")
-            val temp = hour.getDouble("temp")
-            val precip = hour.getDouble("pop")
+            val dt = convertTimeToDate(hour.getLong("dt"))
+            val temp = hour.getInt("temp")
+            val precip = hour.getInt("pop")
             val condition = hour.getJSONArray("weather").getJSONObject(0).getString("main")
 
-            hourlyWeather.add(CurrentWeather(time, temp, precip, condition))
+            hourlyWeather.add(CurrentWeather(dt, temp, precip, condition))
 
             i++
         }
@@ -65,18 +79,19 @@ class Weather(val lat: Double, val lon: Double, json: JSONObject) {
      *
      * @param daily the daily weather JSON array
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun setDailyWeather(daily: JSONArray) {
         var i = 0
         while (i < 7) {
             val day = daily.getJSONObject(i)
-            val time = day.getInt("dt")
+            val dt = convertTimeToDate(day.getLong("dt"))
             val temp = day.getJSONObject("temp")
-            val minTemp = temp.getDouble("min")
-            val maxTemp = temp.getDouble("max")
-            val precip = day.getDouble("pop")
+            val minTemp = temp.getInt("min")
+            val maxTemp = temp.getInt("max")
+            val precip = day.getInt("pop")
             val condition = day.getJSONArray("weather").getJSONObject(0).getString("main")
 
-            weeklyWeather.add(DailyWeather(time, minTemp, maxTemp, precip, condition))
+            weeklyWeather.add(DailyWeather(dt, minTemp, maxTemp, precip, condition))
 
             i++
         }

@@ -93,7 +93,7 @@ class APIManager private constructor(context: Context) {
         fun getInstance(): APIManager? {
             checkNotNull(instance) {
                 APIManager::class.java.simpleName +
-                        " is not initialized, call getInstance(...) first"
+                        " is not initialized, call instantiate() first"
             }
             return instance
         }

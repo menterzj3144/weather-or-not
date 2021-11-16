@@ -87,7 +87,7 @@
                     <LinearLayout
                         android:id="@+id/current_weather_info"
                         style="@style/timeOfDayContainerSection"
-                        android:padding="20dp"
+                        android:padding="10dp"
                         >
 
                         <TextView
@@ -136,7 +136,7 @@
                     <LinearLayout
                         android:id="@+id/afternoon_weather_info"
                         style="@style/timeOfDayContainerSection"
-                        android:padding="20dp"
+                        android:padding="10dp"
                         >
 
                         <TextView
@@ -195,7 +195,7 @@
                     <LinearLayout
                         android:id="@+id/evening_weather_info"
                         style="@style/timeOfDayContainerSection"
-                        android:padding="20dp"
+                        android:padding="10dp"
                         >
 
                         <TextView
@@ -244,7 +244,7 @@
                     <LinearLayout
                         android:id="@+id/night_weather_info"
                         style="@style/timeOfDayContainerSection"
-                        android:padding="20dp"
+                        android:padding="10dp"
                         >
 
                         <TextView
