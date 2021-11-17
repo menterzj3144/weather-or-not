@@ -110,13 +110,20 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="infoBoxTextView2">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- Landscape Styles Today's Weather -->
     <style name="timeOfDayContainer">
         <item name="android:background">@drawable/rounded_background</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:weightSum">2</item>
     </style>
@@ -126,6 +133,10 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">vertical</item>
         <item name="android:layout_weight">1</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:gravity">center_vertical</item>
+
     </style>
+
 
 </resources>

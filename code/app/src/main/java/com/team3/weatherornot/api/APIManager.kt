@@ -18,52 +18,41 @@ import com.team3.weatherornot.weather.Weather
  */
 class APIManager private constructor(context: Context) {
     private val apiKey = "345319f45656517a0f88de5d5cdf0a7d"
-    var requestQueue: RequestQueue = Volley.newRequestQueue(context.applicationContext)
+    private var requestQueue: RequestQueue = Volley.newRequestQueue(context.applicationContext)
 
     //saved weather data so we don't make too many api calls
     var weather: Weather? = null
 
 
     /**
-     * Calls the open weather API to get the weather information for the passed in location, then
-     * calls the listener function to get the result back to the caller
+     * Get the weather object for a specific location from the saved data if it exists or by
+     * calling the open weather API. Then call the listener function to get the result back to the caller
      *
      * @param lat the latitude coordinate of the location
      * @param lon the longitude coordinate of the location
      * @param listener the listener function to be called when the API returns
      */
-    fun getWeatherForLocationAPI(lat: Double, lon: Double, listener: WeatherAPIListener<Weather>) {
+    fun getWeatherForLocation(lat: Double, lon: Double, listener: WeatherAPIListener<Weather>) {
         //if there's already weather data for this location, return that
-        val apiURL: String = "https://api.openweathermap.org/data/2.5/onecall?appid=$apiKey" +
-                "&lat=$lat&lon=$lon&units=imperial"
-
-        println("API CALL")
-        // make api call.
-        val request = JsonObjectRequest(Request.Method.GET, apiURL, null,
-            {
-                weather = Weather(lat, lon, it)
-                listener.getResult(weather!!)
-            },
-            {
-                println("Error! $it")
-            }
-        )
-
-        requestQueue.add(request)
-    }
-
-    /**
-     * Returns the weather for a specified location if it exist in the application memory
-     *
-     * @param lat the latitude coordinate of the location
-     * @param lon the longitude coordinate of the location
-     * @return a Weather object for the specified location. Null if it does not exist
-     */
-    fun getWeatherForLocation(lat: Double, lon: Double): Weather? {
-        return if (weather != null && (weather!!.lat == lat && weather!!.lon == lon)) {
-            weather
+        if (weather != null && (weather!!.lat == lat && weather!!.lon == lon)) {
+            listener.getResult(weather!!)
         } else {
-            null
+            val apiURL: String = "https://api.openweathermap.org/data/2.5/onecall?appid=$apiKey" +
+                    "&lat=$lat&lon=$lon&units=imperial"
+
+            println("API CALL")
+            // make api call.
+            val request = JsonObjectRequest(Request.Method.GET, apiURL, null,
+                {
+                    weather = Weather(lat, lon, it)
+                    listener.getResult(weather!!)
+                },
+                {
+                    println("Error! $it")
+                }
+            )
+
+            requestQueue.add(request)
         }
     }
 

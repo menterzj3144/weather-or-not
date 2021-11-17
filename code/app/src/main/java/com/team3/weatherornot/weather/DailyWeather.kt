@@ -1,17 +1,19 @@
 package com.team3.weatherornot.weather
 
-import java.util.*
+import java.time.ZonedDateTime
 
 /**
  * Stores the data for the weather on a given day
  *
- * @property time the time for the day this weather is for
+ * @property time the date and time + timezone for the day this weather is for
  * @property minTemp the min temperature for the day
  * @property maxTemp the max temperature for the day
  * @property precip the chance of precipitation for the day
  * @property condition the sky condition for the day
  * @constructor Create [DailyWeather]
  */
-class DailyWeather(val time: Date, val minTemp: Int, val maxTemp: Int, val precip: Int, val condition: String) {
+class DailyWeather(val time: ZonedDateTime, val minTemp: Int, val maxTemp: Int, val morning: Int,
+                   val day: Int, val evening: Int, val night: Int, val precip: Int,
+                   val condition: String, val weatherImgId: String) {
 
 }

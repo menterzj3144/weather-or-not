@@ -23,9 +23,10 @@
     <string name="title_activity_bottom_nav">BottomNavActivity</string>
     <string name="weather_condition_image">Weather condition image</string>
     <string name="morning">Morning</string>
-    <string name="afternoon">Afternoon</string>
+    <string name="day">Day</string>
     <string name="evening">Evening</string>
     <string name="night">Night</string>
     <string name="degreesF"> °F</string>
+    <string name="last_updated">Last Updated:</string>
 
 </resources>
