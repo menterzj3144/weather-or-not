@@ -22,6 +22,7 @@ class DailyWeather(val time: ZonedDateTime, val minTemp: Int, val maxTemp: Int, 
                    val day: Int, val evening: Int, val night: Int, val precip: Int,
                    val condition: String, val weatherImgId: String) {
 
+    //can write a test for this
     @RequiresApi(Build.VERSION_CODES.O)
     fun getDayAbbreviation(): String {
         return DateTimeFormatter.ofPattern("EEE").format(time)
