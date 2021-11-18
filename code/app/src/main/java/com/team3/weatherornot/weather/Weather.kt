@@ -136,8 +136,13 @@ class Weather(val lat: Double, val lon: Double, json: JSONObject) {
      * @param hours the number of hours
      * @return a list of weather objects for each hour
      */
-    fun getHourlyWeatherForHours(hours: Int): ArrayList<CurrentWeather> {
-        return hourlyWeather
+    fun getHourlyWeatherForHours(numHours: Int): ArrayList<CurrentWeather> {
+        val list = ArrayList<CurrentWeather>()
+        var i = 0
+        while (i < numHours) {
+            list.add(hourlyWeather[i])
+            i++
+        }
+        return list
     }
-
 }
