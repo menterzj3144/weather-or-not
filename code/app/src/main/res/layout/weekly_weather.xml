@@ -26,19 +26,21 @@
                 android:text="@string/sunday"
                 />
             <!--API INFORMATION NEEDED-->
-            <TextView
+            <ImageView
+                android:id="@+id/sunday_weather_img"
                 style="@style/icon"
                 android:text="icon"
-                android:gravity="center"
+                android:contentDescription="SundayIcon"
                 />
             <TextView
+                android:id="@+id/sun_precip"
                 style="@style/percent"
                 android:text="@string/percent"
                 android:gravity="center"
                 />
 
             <TextView
-                android:id="@+id/lowHighTemps"
+                android:id="@+id/sun_mintemp"
                 style="@style/lowHighTemps"
                 android:text="@string/low"
                 />
@@ -49,6 +51,7 @@
                 app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
 
             <TextView
+                android:id = "@+id/sun_maxtemp"
                 style="@style/lowHighTemps"
                 android:text="@string/high"
                 />
