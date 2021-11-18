@@ -41,7 +41,6 @@ class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
      *
      * @param weather the weather information to be displayed
      */
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun populateTextViews(weather: Weather) {
         val cityTV = findViewById<TextView>(R.id.current_location_name)
         val tempTV = findViewById<TextView>(R.id.current_weather_temp)
