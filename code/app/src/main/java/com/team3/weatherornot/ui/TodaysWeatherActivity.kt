@@ -2,10 +2,12 @@ package com.team3.weatherornot.ui
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.navigation.NavigationBarView
 import com.team3.weatherornot.api.APIManager
@@ -39,6 +41,7 @@ class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
      *
      * @param weather the weather information to be displayed
      */
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun populateTextViews(weather: Weather) {
         val cityTV = findViewById<TextView>(R.id.current_location_name)
         val tempTV = findViewById<TextView>(R.id.current_weather_temp)
@@ -53,8 +56,6 @@ class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
 
         val current = weather.currentWeather
         val today = weather.getSpecificDayWeather(0)
-
-        println(current.weatherImgId)
 
         val resId = resources.getIdentifier("icon_" + current.weatherImgId, "drawable", packageName)
         imageView.setImageResource(resId)

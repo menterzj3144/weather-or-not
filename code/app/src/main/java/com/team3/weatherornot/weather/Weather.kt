@@ -2,6 +2,8 @@ package com.team3.weatherornot.weather
 
 import android.content.Context
 import android.location.Geocoder
+import android.os.Build
+import androidx.annotation.RequiresApi
 import org.json.JSONArray
 import org.json.JSONObject
 import java.text.SimpleDateFormat
@@ -20,6 +22,7 @@ import kotlin.collections.ArrayList
  *
  * @param json the JSON object to be converted to a Weather object
  */
+@RequiresApi(Build.VERSION_CODES.O)
 class Weather(val lat: Double, val lon: Double, json: JSONObject) {
     //the time the weather object was created/updated
     val updateTime: String
