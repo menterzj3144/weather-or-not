@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:paddingBottom="56dp"
         >
-        <!--Sunday Weather Row -->
+        <!--Top Weather Row -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,26 +21,25 @@
 
             <!--Day of the week name -->
             <TextView
-                android:id="@+id/sun"
+                android:id="@+id/day1_name"
                 style="@style/dayOfTheWeek"
-                android:text="@string/sunday"
+
                 />
             <!--API INFORMATION NEEDED-->
             <ImageView
-                android:id="@+id/sunday_weather_img"
+                android:id="@+id/day1_weather_img"
                 style="@style/icon"
-                android:text="icon"
-                android:contentDescription="SundayIcon"
+
                 />
             <TextView
-                android:id="@+id/sun_precip"
+                android:id="@+id/day1_precip"
                 style="@style/percent"
                 android:text="@string/percent"
                 android:gravity="center"
                 />
 
             <TextView
-                android:id="@+id/sun_mintemp"
+                android:id="@+id/day1_mintemp"
                 style="@style/lowHighTemps"
                 android:text="@string/low"
                 />
@@ -51,14 +50,14 @@
                 app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
 
             <TextView
-                android:id = "@+id/sun_maxtemp"
+                android:id = "@+id/day1_maxtemp"
                 style="@style/lowHighTemps"
                 android:text="@string/high"
                 />
 
         </LinearLayout>
 
-        <!--Monday Weather Row -->
+        <!-- Weather Row 2-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,23 +67,24 @@
             >
             <!--Day of the week name -->
             <TextView
-                android:id="@+id/mon"
+                android:id="@+id/day2_name"
                 style="@style/dayOfTheWeek"
-                android:text="@string/monday"
                 />
             <!--API INFORMATION NEEDED-->
-            <TextView
+            <ImageView
+                android:id="@+id/day2_weather_img"
                 style="@style/icon"
-                android:text="icon"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/day2_precip"
                 style="@style/percent"
                 android:text="@string/percent"
                 android:gravity="center"
                 />
 
             <TextView
+                android:id="@+id/day2_mintemp"
                 style="@style/lowHighTemps"
                 android:text="@string/low"
                 />
@@ -95,13 +95,14 @@
                 app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
 
             <TextView
+                android:id="@+id/day2_maxtemp"
                 style="@style/lowHighTemps"
                 android:text="@string/high"
                 />
 
         </LinearLayout>
 
-        <!--Tuesday Weather Row -->
+        <!-- Weather Row 3-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -111,23 +112,24 @@
             <!--Day of the week name -->
 
             <TextView
-                android:id="@+id/tues"
+                android:id="@+id/day3_name"
                 style="@style/dayOfTheWeek"
-                android:text="@string/tuesday"
                 />
             <!-- API INFORMATION NEEDED-->
-            <TextView
+            <ImageView
+                android:id="@+id/day3_weather_img"
                 style="@style/icon"
-                android:text="icon"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/day3_precip"
                 style="@style/percent"
                 android:text="@string/percent"
                 android:gravity="center"
                 />
 
             <TextView
+                android:id="@+id/day3_mintemp"
                 style="@style/lowHighTemps"
                 android:text="@string/low"
                 />
@@ -138,13 +140,14 @@
                 app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
 
             <TextView
+                android:id="@+id/day3_maxtemp"
                 style="@style/lowHighTemps"
                 android:text="@string/high"
                 />
 
         </LinearLayout>
 
-        <!--Wednesday Weather Row -->
+        <!-- Weather Row 4-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -154,23 +157,24 @@
             <!--Day of the week name -->
 
             <TextView
-                android:id="@+id/wed"
+                android:id="@+id/day4_name"
                 style="@style/dayOfTheWeek"
-                android:text="@string/wednesday"
                 />
             <!--API INFORMATION NEEDED-->
-            <TextView
+            <ImageView
+                android:id="@+id/day4_weather_img"
                 style="@style/icon"
-                android:text="icon"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/day4_precip"
                 style="@style/percent"
                 android:text="@string/percent"
                 android:gravity="center"
                 />
 
             <TextView
+                android:id="@+id/day4_mintemp"
                 style="@style/lowHighTemps"
                 android:text="@string/low"
                 />
@@ -181,6 +185,7 @@
                 app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
 
             <TextView
+                android:id="@+id/day4_maxtemp"
                 style="@style/lowHighTemps"
                 android:text="@string/high"
                 />
@@ -188,7 +193,7 @@
         </LinearLayout>
 
 
-        <!--Thursday Weather Row -->
+        <!-- Weather Row 5-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -197,23 +202,24 @@
             android:orientation="horizontal">
             <!--Day of the week name -->
             <TextView
-                android:id="@+id/thurs"
+                android:id="@+id/day5_name"
                 style="@style/dayOfTheWeek"
-                android:text="@string/thursday"
                 />
             <!--API INFORMATION NEEDED-->
-            <TextView
+            <ImageView
+                android:id="@+id/day5_weather_img"
                 style="@style/icon"
-                android:text="icon"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/day5_precip"
                 style="@style/percent"
                 android:text="@string/percent"
                 android:gravity="center"
                 />
 
             <TextView
+                android:id="@+id/day5_mintemp"
                 style="@style/lowHighTemps"
                 android:text="@string/low"
                 />
@@ -224,13 +230,14 @@
                 app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
 
             <TextView
+                android:id="@+id/day5_maxtemp"
                 style="@style/lowHighTemps"
                 android:text="@string/high"
                 />
 
         </LinearLayout>
 
-        <!--Friday Weather Row -->
+        <!-- Weather Row 6 -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -239,22 +246,23 @@
             android:orientation="horizontal">
             <!--Day of the week name -->
             <TextView
-                android:id="@+id/fri"
+                android:id="@+id/day6_name"
                 style="@style/dayOfTheWeek"
-                android:text="@string/friday"
                 />
             <!--API INFORMATION NEEDED-->
-            <TextView
+            <ImageView
+                android:id="@+id/day6_weather_img"
                 style="@style/icon"
-                android:text="icon"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/day6_precip"
                 style="@style/percent"
                 android:text="@string/percent"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/day6_mintemp"
                 style="@style/lowHighTemps"
                 android:text="@string/low"
                 />
@@ -265,13 +273,14 @@
                 app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
 
             <TextView
+                android:id="@+id/day6_maxtemp"
                 style="@style/lowHighTemps"
                 android:text="@string/high"
                 />
 
         </LinearLayout>
 
-        <!--Saturday Weather Row -->
+        <!-- Weather Row 7 -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -280,22 +289,23 @@
             android:orientation="horizontal">
             <!--Day of the week name -->
             <TextView
-                android:id="@+id/sat"
+                android:id="@+id/day7_name"
                 style="@style/dayOfTheWeek"
-                android:text="@string/saturday"
                 />
             <!--API INFORMATION NEEDED-->
-            <TextView
+            <ImageView
+                android:id="@+id/day7_weather_img"
                 style="@style/icon"
-                android:text="icon"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/day7_precip"
                 style="@style/percent"
                 android:text="@string/percent"
                 android:gravity="center"
                 />
             <TextView
+                android:id="@+id/day7_mintemp"
                 style="@style/lowHighTemps"
                 android:text="@string/low"
                 />
@@ -306,6 +316,7 @@
                 app:drawableBottomCompat="@drawable/ic_arrowright_foreground" />
 
             <TextView
+                android:id="@+id/day7_maxtemp"
                 style="@style/lowHighTemps"
                 android:text="@string/high"
                 />
