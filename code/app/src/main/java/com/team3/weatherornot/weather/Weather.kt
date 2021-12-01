@@ -6,6 +6,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import org.json.JSONArray
 import org.json.JSONObject
+import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.time.Instant
 import java.time.ZoneId
@@ -73,9 +74,13 @@ class Weather(val lat: Double, val lon: Double, json: JSONObject) {
      * @return a string of the city and state names
      */
     fun getCityState(context: Context): String {
-        val geo = Geocoder(context, Locale.getDefault())
-        val addresses = geo.getFromLocation(lat, lon, 1)
-        return addresses[0].locality + ", " + addresses[0].adminArea
+        return try {
+            val geo = Geocoder(context, Locale.getDefault())
+            val addresses = geo.getFromLocation(lat, lon, 1)
+            addresses[0].locality + ", " + addresses[0].adminArea
+        } catch (e: Exception) {
+            "$lat, $lon"
+        }
     }
 
     /**

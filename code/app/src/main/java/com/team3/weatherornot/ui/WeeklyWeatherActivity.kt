@@ -52,8 +52,6 @@ class WeeklyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
 
         val today_1 = weather.getSpecificDayWeather(0)
 
-        println(today_1.weatherImgId)
-
         val resId = resources.getIdentifier("icon_" + today_1.weatherImgId, "drawable", packageName)
         imageView.setImageResource(resId)
 
