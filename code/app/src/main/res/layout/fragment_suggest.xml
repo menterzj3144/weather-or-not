@@ -4,46 +4,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#CFF0FF">
+    android:background= "@color/white">
 
     <LinearLayout
         android:id="@+id/suggest_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="56dp"
         android:orientation="vertical">
 
-        <SearchView
-            android:id="@+id/search_view"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/suggest_drop_down"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="@color/white"/>
-
-        <ListView
-            android:id="@+id/list_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginTop="36dp"
             android:layout_marginLeft="16dp"
-            />
+            android:layout_marginRight="16dp"
+            android:hint="Choose Day of The Week">
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_background"
+            android:layout_margin="5dp"
+            >
+
+            <TextView
+            android:id="@+id/suggest_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="center"
+            android:text=" Display Selected Day Here "
+            android:textColor="@color/black"
+            android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/suggest_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="Date Searched or Today's Date"
-            android:textSize="24sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:drawableStart="@drawable/ic_baseline_today_24"/>
+    </LinearLayout>
 
         <TextView
             android:id="@+id/suggest_label"
+            android:background="@drawable/rounded_background"
+            android:padding="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="Suggested Activities:"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:text=" Your Suggested Activities Are: "
             android:textSize="24sp"
             android:textColor="@color/black"
             android:gravity="bottom"/>
@@ -52,12 +73,12 @@
             android:id="@+id/suggest_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/rounded_background"
             android:gravity="center"
-            android:text="Here is where the list of activities will be"
+            android:text="Display List of Activities Here"
             android:textColor="@color/black"
             android:textSize="24dp" />
-
 
 
     </LinearLayout>
