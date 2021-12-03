@@ -42,7 +42,6 @@ class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
      * @param weather the weather information to be displayed
      */
     private fun populateTextViews(weather: Weather) {
-        val cityTV = findViewById<TextView>(R.id.current_location_name)
         val tempTV = findViewById<TextView>(R.id.current_weather_temp)
         val conditionTV = findViewById<TextView>(R.id.current_weather_condition)
         val precipTV = findViewById<TextView>(R.id.current_weather_precip)
@@ -59,7 +58,7 @@ class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
         val resId = resources.getIdentifier("icon_" + current.weatherImgId, "drawable", packageName)
         imageView.setImageResource(resId)
 
-        cityTV.text = weather.getCityState(applicationContext)
+        weather.getCityState(applicationContext, ::setCityStateText)
         tempTV.text = (current.temp.toString() + getString(R.string.degreesF))
         conditionTV.text = current.condition
         precipTV.text = (current.precip.toString() + getString(R.string.percent))
@@ -69,6 +68,16 @@ class TodaysWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
         eveningTempTV.text = (today.evening.toString() + getString(R.string.degreesF))
         nightTempTV.text = (today.night.toString() + getString(R.string.degreesF))
         updateTimeTV.append(weather.updateTime)
+    }
+
+    /**
+     * Callback function to set the city state text when the geocoder thread finishes
+     *
+     * @param cityState the city and state to display
+     */
+    private fun setCityStateText(cityState: String) {
+        val cityTV = findViewById<TextView>(R.id.current_location_name)
+        cityTV.text = cityState
     }
 
     /**

@@ -2,8 +2,6 @@ package com.team3.weatherornot.weather
 
 import android.content.Context
 import android.location.Geocoder
-import android.os.Build
-import androidx.annotation.RequiresApi
 import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.Exception
@@ -30,6 +28,7 @@ class Weather(val lat: Double, val lon: Double, json: JSONObject) {
     val weeklyWeather: ArrayList<DailyWeather> = ArrayList()
     val hourlyWeather: ArrayList<CurrentWeather> = ArrayList()
     var timezone: String = ""
+    var cityState: String = ""
 
     init {
         timezone = json.getString("timezone")
@@ -73,14 +72,21 @@ class Weather(val lat: Double, val lon: Double, json: JSONObject) {
      * @param context application context
      * @return a string of the city and state names
      */
-    fun getCityState(context: Context): String {
-        return try {
-            val geo = Geocoder(context, Locale.getDefault())
-            val addresses = geo.getFromLocation(lat, lon, 1)
-            addresses[0].locality + ", " + addresses[0].adminArea
-        } catch (e: Exception) {
-            "$lat, $lon"
-        }
+    fun getCityState(context: Context, callback: (city: String) -> Unit) {
+        Thread {
+            if (cityState.isNotBlank()) {
+                callback(cityState)
+            } else {
+                try {
+                    val geo = Geocoder(context, Locale.getDefault())
+                    val addresses = geo.getFromLocation(lat, lon, 1)
+                    cityState = addresses[0].locality + ", " + addresses[0].adminArea
+                    callback(cityState)
+                } catch (e: Exception) {
+                    callback("$lat, $lon")
+                }
+            }
+        }.start()
     }
 
     /**

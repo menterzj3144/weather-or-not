@@ -39,22 +39,25 @@ class APIManager private constructor(context: Context) {
         if (weather != null && (weather!!.lat == lat && weather!!.lon == lon)) {
             listener.getResult(weather!!)
         } else {
-            val apiURL: String = "https://api.openweathermap.org/data/2.5/onecall?appid=$apiKey" +
-                    "&lat=$lat&lon=$lon&units=imperial"
+            Thread {
+                val apiURL: String =
+                    "https://api.openweathermap.org/data/2.5/onecall?appid=$apiKey" +
+                            "&lat=$lat&lon=$lon&units=imperial"
 
-            println("API CALL")
-            // make api call.
-            val request = JsonObjectRequest(Request.Method.GET, apiURL, null,
-                {
-                    weather = Weather(lat, lon, it)
-                    listener.getResult(weather!!)
-                },
-                {
-                    println("Error! $it")
-                }
-            )
+                println("API CALL")
+                // make api call.
+                val request = JsonObjectRequest(Request.Method.GET, apiURL, null,
+                    {
+                        weather = Weather(lat, lon, it)
+                        listener.getResult(weather!!)
+                    },
+                    {
+                        println("Error! $it")
+                    }
+                )
 
-            requestQueue.add(request)
+                requestQueue.add(request)
+            }.start()
         }
     }
 
