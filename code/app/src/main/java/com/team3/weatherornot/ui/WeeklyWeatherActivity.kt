@@ -7,7 +7,7 @@ import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.navigation.NavigationBarView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.team3.weatherornot.R
 import com.team3.weatherornot.api.APIManager
 import com.team3.weatherornot.api.WeatherAPIListener
@@ -18,13 +18,15 @@ import com.team3.weatherornot.weather.Weather
  *
  * @constructor Create empty constructor for weekly weather activity
  */
-class WeeklyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
+class WeeklyWeatherActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.weekly_weather)
 
-        findViewById<NavigationBarView>(R.id.weekly_nav_view).setOnItemSelectedListener(this)
+        findViewById<BottomNavigationView>(R.id.weekly_nav_view).setOnItemSelectedListener {
+            onNavigationItemSelected(it)
+        }
 
         APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, object :
             WeatherAPIListener<Weather> {
@@ -179,22 +181,19 @@ class WeeklyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
      * @param item the menu item that was selected
      * @return a success boolean
      */
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+    private fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.navigation_today -> {
                 changeActivity(TodaysWeatherActivity())
-                return true
             }
             R.id.navigation_hourly -> {
                 changeActivity(HourlyWeatherActivity())
-                return true
             }
             R.id.navigation_suggest_select -> {
                 changeActivity(SuggestSelectActivity())
-                return true
             }
         }
-        return false
+        return true
     }
 
     /**

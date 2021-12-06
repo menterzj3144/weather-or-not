@@ -7,7 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.navigation.NavigationBarView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.team3.weatherornot.R
 
 /**
@@ -15,13 +15,15 @@ import com.team3.weatherornot.R
  *
  * @constructor Create empty constructor for suggest/select weather activity
  */
-class SuggestSelectActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
+class SuggestSelectActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.suggest_select_layout)
 
-        findViewById<NavigationBarView>(R.id.suggest_select_nav_view).setOnItemSelectedListener(this)
+        findViewById<BottomNavigationView>(R.id.suggest_select_nav_view).setOnItemSelectedListener {
+            onNavigationItemSelected(it)
+        }
 
         val viewPager: ViewPager2 = findViewById(R.id.viewPager)
 
@@ -39,7 +41,7 @@ class SuggestSelectActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
      * @param item the menu item that was selected
      * @return a success boolean
      */
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+    private fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.navigation_today -> {
                 changeActivity(TodaysWeatherActivity())

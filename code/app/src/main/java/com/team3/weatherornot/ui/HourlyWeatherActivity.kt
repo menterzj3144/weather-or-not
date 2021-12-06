@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.navigation.NavigationBarView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.team3.weatherornot.R
 import com.team3.weatherornot.api.APIManager
 import com.team3.weatherornot.api.WeatherAPIListener
@@ -18,13 +18,15 @@ import java.util.*
  *
  * @constructor Create empty constructor for hourly weather activity
  */
-class HourlyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener  {
+class HourlyWeatherActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.hourly_weather)
 
-        findViewById<NavigationBarView>(R.id.hourly_nav_view).setOnItemSelectedListener(this)
+        findViewById<BottomNavigationView>(R.id.hourly_nav_view).setOnItemSelectedListener {
+            onNavigationItemSelected(it)
+        }
 
         APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, object :
             WeatherAPIListener<Weather> {
@@ -40,7 +42,6 @@ class HourlyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
      * @param weather the weather information to be displayed
      */
     private fun populateTextViews(weather: Weather) {
-        findViewById<NavigationBarView>(R.id.hourly_nav_view).setOnItemSelectedListener(this)
         val temp1 = findViewById<TextView>(R.id.textView)
         val temp2 = findViewById<TextView>(R.id.textView2)
         val temp3 = findViewById<TextView>(R.id.textView3)
@@ -51,7 +52,6 @@ class HourlyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
         val temp8 = findViewById<TextView>(R.id.textView8)
         val temp9 = findViewById<TextView>(R.id.textView9)
 
-        val currentWeather = weather.currentWeather
         val today = weather.getHourlyWeatherForHours(9)
         val date = Date()
         val cal = Calendar.getInstance()
@@ -74,7 +74,7 @@ class HourlyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
      * @param item the menu item that was selected
      * @return a success boolean
      */
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+    private fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.navigation_today -> {
                 changeActivity(TodaysWeatherActivity())
