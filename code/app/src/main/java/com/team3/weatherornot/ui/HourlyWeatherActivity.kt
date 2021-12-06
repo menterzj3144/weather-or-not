@@ -24,6 +24,8 @@ class HourlyWeatherActivity : AppCompatActivity(), NavigationBarView.OnItemSelec
 
         setContentView(R.layout.hourly_weather)
 
+        findViewById<NavigationBarView>(R.id.hourly_nav_view).setOnItemSelectedListener(this)
+
         APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, object :
             WeatherAPIListener<Weather> {
             override fun getResult(result: Weather) {
