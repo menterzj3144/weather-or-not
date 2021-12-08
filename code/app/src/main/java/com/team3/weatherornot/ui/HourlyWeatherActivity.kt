@@ -25,17 +25,18 @@ class HourlyWeatherActivity : AppCompatActivity() {
 
         setContentView(R.layout.hourly_weather)
 
-        APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, object :
-            WeatherAPIListener<Weather> {
-            fun getResult(result: Weather) {
-                // Use this line to get the db activities and put them in a list
-                // applicationContext varies per activity so make sure to just copy the whole line with the dao.getJson(applicationContext) exactly as it is
-                var weatherActivities = Dao.getJson(applicationContext)
-                // Example printing out the activity description of the 6th activity in the list
-                println(weatherActivities[6].Activity_Desc.toString())
-                populateTextViews(result)
-            }
-        })
+        findViewById<BottomNavigationView>(R.id.hourly_nav_view).setOnItemSelectedListener {
+            onNavigationItemSelected(it)
+        }
+        
+        // Use this line to get the db activities and put them in a list.
+        // applicationContext varies per activity so make sure to just copy the whole line with the dao.getJson(applicationContext) 
+        // exactly as it is.
+        var weatherActivities = Dao.getJson(applicationContext)
+        // Example printing out the activity description of the 6th activity in the list
+        println(weatherActivities[6].Activity_Desc.toString())
+
+        APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, ::populateTextViews)
     }
 
     /**
@@ -129,4 +130,8 @@ class HourlyWeatherActivity : AppCompatActivity() {
         val intent = Intent(this, activity::class.java)
         startActivity(intent)
     }
+}
+
+private fun BottomNavigationView.setOnItemSelectedListener(hourlyWeatherActivity: HourlyWeatherActivity) {
+
 }
