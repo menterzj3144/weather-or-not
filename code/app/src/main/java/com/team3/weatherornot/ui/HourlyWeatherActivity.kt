@@ -21,7 +21,9 @@ class HourlyWeatherActivity : AppCompatActivity() {
 
         setContentView(R.layout.hourly_weather)
 
-        findViewById<BottomNavigationView>(R.id.hourly_nav_view).setOnItemSelectedListener {
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.hourly_nav_view)
+        bottomNavigationView.selectedItemId = R.id.navigation_hourly
+        bottomNavigationView.setOnItemSelectedListener {
             Navigation().onNavigationItemSelected(it, this)
         }
         
@@ -55,14 +57,14 @@ class HourlyWeatherActivity : AppCompatActivity() {
         val today = weather.getHourlyWeatherForHours(9)
 
         temp1.text = (today[0].getFormattedHour() + " " + today[0].temp.toString() + getString(R.string.degreesF))
-        temp2.text = (today[0].getFormattedHour() + " " + today[1].temp.toString() + getString(R.string.degreesF))
-        temp3.text = (today[0].getFormattedHour() + " " + today[2].temp.toString() + getString(R.string.degreesF))
-        temp4.text = (today[0].getFormattedHour() + " " + today[3].temp.toString() + getString(R.string.degreesF))
-        temp5.text = (today[0].getFormattedHour() + " " + today[4].temp.toString() + getString(R.string.degreesF))
-        temp6.text = (today[0].getFormattedHour() + " " + today[5].temp.toString() + getString(R.string.degreesF))
-        temp7.text = (today[0].getFormattedHour() + " " + today[6].temp.toString() + getString(R.string.degreesF))
-        temp8.text = (today[0].getFormattedHour() + " " + today[7].temp.toString() + getString(R.string.degreesF))
-        temp9.text = (today[0].getFormattedHour() + " " + today[8].temp.toString() + getString(R.string.degreesF))
+        temp2.text = (today[1].getFormattedHour() + " " + today[1].temp.toString() + getString(R.string.degreesF))
+        temp3.text = (today[2].getFormattedHour() + " " + today[2].temp.toString() + getString(R.string.degreesF))
+        temp4.text = (today[3].getFormattedHour() + " " + today[3].temp.toString() + getString(R.string.degreesF))
+        temp5.text = (today[4].getFormattedHour() + " " + today[4].temp.toString() + getString(R.string.degreesF))
+        temp6.text = (today[5].getFormattedHour() + " " + today[5].temp.toString() + getString(R.string.degreesF))
+        temp7.text = (today[6].getFormattedHour() + " " + today[6].temp.toString() + getString(R.string.degreesF))
+        temp8.text = (today[7].getFormattedHour() + " " + today[7].temp.toString() + getString(R.string.degreesF))
+        temp9.text = (today[8].getFormattedHour() + " " + today[8].temp.toString() + getString(R.string.degreesF))
     }
 }
 

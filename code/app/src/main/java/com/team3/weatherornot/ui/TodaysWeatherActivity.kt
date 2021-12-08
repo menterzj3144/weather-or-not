@@ -20,7 +20,9 @@ class TodaysWeatherActivity : AppCompatActivity() {
 
         setContentView(R.layout.todays_weather)
 
-        findViewById<BottomNavigationView>(R.id.today_nav_view).setOnItemSelectedListener {
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.today_nav_view)
+        bottomNavigationView.selectedItemId = R.id.navigation_today
+        bottomNavigationView.setOnItemSelectedListener {
             Navigation().onNavigationItemSelected(it, this)
         }
 

@@ -18,7 +18,9 @@ class SuggestSelectActivity : AppCompatActivity() {
 
         setContentView(R.layout.suggest_select_layout)
 
-        findViewById<BottomNavigationView>(R.id.suggest_select_nav_view).setOnItemSelectedListener {
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.suggest_select_nav_view)
+        bottomNavigationView.selectedItemId = R.id.navigation_suggest_select
+        bottomNavigationView.setOnItemSelectedListener {
             Navigation().onNavigationItemSelected(it, this)
         }
 
