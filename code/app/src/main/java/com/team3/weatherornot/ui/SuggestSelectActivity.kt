@@ -24,13 +24,12 @@ class SuggestSelectActivity : AppCompatActivity() {
             Navigation().onNavigationItemSelected(it, this)
         }
 
-        val viewPager: ViewPager2 = findViewById(R.id.viewPager)
+        val viewPager = findViewById<ViewPager2>(R.id.viewPager)
 
         val fragments: ArrayList<Fragment> = arrayListOf(
             SuggestFragment(), SelectFragment()
         )
 
-        val adapter2 = ViewPagerAdapter(fragments, this)
-        viewPager.adapter = adapter2
+        viewPager.adapter = ViewPagerAdapter(fragments, this)
     }
 }
