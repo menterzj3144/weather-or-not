@@ -1,6 +1,7 @@
 package com.team3.weatherornot.weather
 
 import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 
 /**
  * Stores the data for the weather at a given point in time
@@ -13,4 +14,8 @@ import java.time.ZonedDateTime
  */
 class CurrentWeather(val time: ZonedDateTime, val temp: Int, val precip: Int,
                      val condition: String, val weatherImgId: String) {
+
+    fun getFormattedHour(): String {
+        return DateTimeFormatter.ofPattern("ha").format(time)
+    }
 }

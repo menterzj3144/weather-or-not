@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.team3.weatherornot.api.APIManager
 import com.team3.weatherornot.R
-import com.team3.weatherornot.api.WeatherAPIListener
 import com.team3.weatherornot.weather.Weather
 
 /**
@@ -28,12 +27,7 @@ class TodaysWeatherActivity : AppCompatActivity() {
             onNavigationItemSelected(it)
         }
 
-        APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, object :
-            WeatherAPIListener<Weather> {
-            override fun getResult(result: Weather) {
-                populateTextViews(result)
-            }
-        })
+        APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, ::populateTextViews)
     }
 
     /**

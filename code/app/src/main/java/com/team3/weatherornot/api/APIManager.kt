@@ -1,8 +1,6 @@
 package com.team3.weatherornot.api
 
 import android.content.Context
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
@@ -34,10 +32,10 @@ class APIManager private constructor(context: Context) {
      * @param lon the longitude coordinate of the location
      * @param listener the listener function to be called when the API returns
      */
-    fun getWeatherForLocation(lat: Double, lon: Double, listener: WeatherAPIListener<Weather>) {
+    fun getWeatherForLocation(lat: Double, lon: Double, callback: (weather: Weather) -> Unit) {
         //if there's already weather data for this location, return that
         if (weather != null && (weather!!.lat == lat && weather!!.lon == lon)) {
-            listener.getResult(weather!!)
+            callback(weather!!)
         } else {
             Thread {
                 val apiURL: String =
@@ -49,7 +47,7 @@ class APIManager private constructor(context: Context) {
                 val request = JsonObjectRequest(Request.Method.GET, apiURL, null,
                     {
                         weather = Weather(lat, lon, it)
-                        listener.getResult(weather!!)
+                        callback(weather!!)
                     },
                     {
                         println("Error! $it")

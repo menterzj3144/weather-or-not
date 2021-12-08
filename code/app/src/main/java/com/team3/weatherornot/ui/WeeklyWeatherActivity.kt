@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.team3.weatherornot.R
 import com.team3.weatherornot.api.APIManager
-import com.team3.weatherornot.api.WeatherAPIListener
 import com.team3.weatherornot.weather.Weather
 
 /**
@@ -28,152 +27,38 @@ class WeeklyWeatherActivity : AppCompatActivity() {
             onNavigationItemSelected(it)
         }
 
-        APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, object :
-            WeatherAPIListener<Weather> {
-            override fun getResult(result: Weather) {
-                populateFirstRow(result)
-                populateSecondRow(result)
-                populateThirdRow(result)
-                populateFourthRow(result)
-                populateFifthRow(result)
-                populateSixthRow(result)
-                populateSeventhRow(result)
-            }
-        })
+        APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, ::populateTextViews)
     }
 
 
-    private fun populateFirstRow(weather: Weather){
-        val imageView = findViewById<ImageView>(R.id.day1_weather_img)
-        val minTemp = findViewById<TextView>(R.id.day1_mintemp)
-        val maxTemp = findViewById<TextView>(R.id.day1_maxtemp)
-        val precipTV = findViewById<TextView>(R.id.day1_precip)
-        val day1Name = findViewById<TextView>(R.id.day1_name)
+    private fun populateTextViews(weather: Weather){
+        var i = 1
+        while (i < 8) {
+            val imageViewId = resources.getIdentifier("day" + i + "_weather_img", "id", packageName)
+            val minTempId = resources.getIdentifier("day" + i + "_mintemp", "id", packageName)
+            val maxTempId = resources.getIdentifier("day" + i + "_maxtemp", "id", packageName)
+            val precipTVId = resources.getIdentifier("day" + i + "_precip", "id", packageName)
+            val dayNameId = resources.getIdentifier("day" + i + "_name", "id", packageName)
 
-        val today_1 = weather.getSpecificDayWeather(0)
+            val imageView = findViewById<ImageView>(imageViewId)
+            val minTemp = findViewById<TextView>(minTempId)
+            val maxTemp = findViewById<TextView>(maxTempId)
+            val precipTV = findViewById<TextView>(precipTVId)
+            val dayName = findViewById<TextView>(dayNameId)
 
-        val resId = resources.getIdentifier("icon_" + today_1.weatherImgId, "drawable", packageName)
-        imageView.setImageResource(resId)
+            val day = weather.getSpecificDayWeather(i - 1)
 
-        minTemp.text = (today_1.minTemp.toString() + "°F")
-        maxTemp.text = (today_1.maxTemp.toString() + "°F")
-        precipTV.text = (today_1.precip.toString() + "%")
-        day1Name.text = (today_1.getDayAbbreviation())
+            val resId = resources.getIdentifier("icon_" + day.weatherImgId, "drawable", packageName)
+            imageView.setImageResource(resId)
+
+            minTemp.text = (day.minTemp.toString() + "°F")
+            maxTemp.text = (day.maxTemp.toString() + "°F")
+            precipTV.text = (day.precip.toString() + "%")
+            dayName.text = (day.getDayAbbreviation())
+
+            i++
+        }
     }
-
-    private fun populateSecondRow(weather:Weather){
-        val imageView = findViewById<ImageView>(R.id.day2_weather_img)
-        val minTemp = findViewById<TextView>(R.id.day2_mintemp)
-        val maxTemp = findViewById<TextView>(R.id.day2_maxtemp)
-        val precipTV = findViewById<TextView>(R.id.day2_precip)
-        val day1Name = findViewById<TextView>(R.id.day2_name)
-
-        val today_2 = weather.getSpecificDayWeather(1)
-
-
-        val resId = resources.getIdentifier("icon_" + today_2.weatherImgId, "drawable", packageName)
-        imageView.setImageResource(resId)
-
-        minTemp.text = (today_2.minTemp.toString() + "°F")
-        maxTemp.text = (today_2.maxTemp.toString() + "°F")
-        precipTV.text = (today_2.precip.toString() + "%")
-        day1Name.text = (today_2.getDayAbbreviation())
-    }
-
-    private fun populateThirdRow(weather: Weather){
-        val imageView = findViewById<ImageView>(R.id.day3_weather_img)
-        val minTemp = findViewById<TextView>(R.id.day3_mintemp)
-        val maxTemp = findViewById<TextView>(R.id.day3_maxtemp)
-        val precipTV = findViewById<TextView>(R.id.day3_precip)
-        val day1Name = findViewById<TextView>(R.id.day3_name)
-
-        val today_3 = weather.getSpecificDayWeather(2)
-
-        val resId = resources.getIdentifier("icon_" + today_3.weatherImgId, "drawable", packageName)
-        imageView.setImageResource(resId)
-
-        minTemp.text = (today_3.minTemp.toString() + "°F")
-        maxTemp.text = (today_3.maxTemp.toString() + "°F")
-        precipTV.text = (today_3.precip.toString() + "%")
-        day1Name.text = (today_3.getDayAbbreviation())
-    }
-
-    private fun populateFourthRow(weather: Weather){
-        val imageView = findViewById<ImageView>(R.id.day4_weather_img)
-        val minTemp = findViewById<TextView>(R.id.day4_mintemp)
-        val maxTemp = findViewById<TextView>(R.id.day4_maxtemp)
-        val precipTV = findViewById<TextView>(R.id.day4_precip)
-        val day1Name = findViewById<TextView>(R.id.day4_name)
-
-        val today_4 = weather.getSpecificDayWeather(3)
-
-        val resId = resources.getIdentifier("icon_" + today_4.weatherImgId, "drawable", packageName)
-        imageView.setImageResource(resId)
-
-        minTemp.text = (today_4.minTemp.toString() + "°F")
-        maxTemp.text = (today_4.maxTemp.toString() + "°F")
-        precipTV.text = (today_4.precip.toString() + "%")
-        day1Name.text = (today_4.getDayAbbreviation())
-    }
-
-    private fun populateFifthRow(weather: Weather){
-        val imageView = findViewById<ImageView>(R.id.day5_weather_img)
-        val minTemp = findViewById<TextView>(R.id.day5_mintemp)
-        val maxTemp = findViewById<TextView>(R.id.day5_maxtemp)
-        val precipTV = findViewById<TextView>(R.id.day5_precip)
-        val day1Name = findViewById<TextView>(R.id.day5_name)
-
-        val today_5 = weather.getSpecificDayWeather(4)
-
-        val resId = resources.getIdentifier("icon_" + today_5.weatherImgId, "drawable", packageName)
-        imageView.setImageResource(resId)
-
-        minTemp.text = (today_5.minTemp.toString() + "°F")
-        maxTemp.text = (today_5.maxTemp.toString() + "°F")
-        precipTV.text = (today_5.precip.toString() + "%")
-        day1Name.text = (today_5.getDayAbbreviation())
-    }
-
-    private fun populateSixthRow(weather: Weather){
-        val imageView = findViewById<ImageView>(R.id.day6_weather_img)
-        val minTemp = findViewById<TextView>(R.id.day6_mintemp)
-        val maxTemp = findViewById<TextView>(R.id.day6_maxtemp)
-        val precipTV = findViewById<TextView>(R.id.day6_precip)
-        val day1Name = findViewById<TextView>(R.id.day6_name)
-
-        val today_6 = weather.getSpecificDayWeather(5)
-
-        val resId = resources.getIdentifier("icon_" + today_6.weatherImgId, "drawable", packageName)
-        imageView.setImageResource(resId)
-
-        minTemp.text = (today_6.minTemp.toString() + "°F")
-        maxTemp.text = (today_6.maxTemp.toString() + "°F")
-        precipTV.text = (today_6.precip.toString() + "%")
-        day1Name.text = (today_6.getDayAbbreviation())
-    }
-
-    private fun populateSeventhRow(weather: Weather){
-        val imageView = findViewById<ImageView>(R.id.day7_weather_img)
-        val minTemp = findViewById<TextView>(R.id.day7_mintemp)
-        val maxTemp = findViewById<TextView>(R.id.day7_maxtemp)
-        val precipTV = findViewById<TextView>(R.id.day7_precip)
-        val day1Name = findViewById<TextView>(R.id.day7_name)
-
-        val today_7 = weather.getSpecificDayWeather(6)
-
-
-        val resId = resources.getIdentifier("icon_" + today_7.weatherImgId, "drawable", packageName)
-        imageView.setImageResource(resId)
-
-        minTemp.text = (today_7.minTemp.toString() + "°F")
-        maxTemp.text = (today_7.maxTemp.toString() + "°F")
-        precipTV.text = (today_7.precip.toString() + "%")
-        day1Name.text = (today_7.getDayAbbreviation())
-    }
-
-
-
-
 
     /**
      * Switches to an activity based on which menu item was selected
