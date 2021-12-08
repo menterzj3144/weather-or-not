@@ -1,9 +1,6 @@
 package com.team3.weatherornot.ui
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +21,7 @@ class TodaysWeatherActivity : AppCompatActivity() {
         setContentView(R.layout.todays_weather)
 
         findViewById<BottomNavigationView>(R.id.today_nav_view).setOnItemSelectedListener {
-            onNavigationItemSelected(it)
+            Navigation().onNavigationItemSelected(it, this)
         }
 
         APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, ::populateTextViews)
@@ -72,36 +69,5 @@ class TodaysWeatherActivity : AppCompatActivity() {
     private fun setCityStateText(cityState: String) {
         val cityTV = findViewById<TextView>(R.id.current_location_name)
         cityTV.text = cityState
-    }
-
-    /**
-     * Switches to an activity based on which menu item was selected
-     *
-     * @param item the menu item that was selected
-     * @return a success boolean
-     */
-    private fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.navigation_hourly -> {
-                changeActivity(HourlyWeatherActivity())
-            }
-            R.id.navigation_weekly -> {
-                changeActivity(WeeklyWeatherActivity())
-            }
-            R.id.navigation_suggest_select -> {
-                changeActivity(SuggestSelectActivity())
-            }
-        }
-        return true
-    }
-
-    /**
-     * Starts the specified activity
-     *
-     * @param activity the activity to be started
-     */
-    private fun changeActivity(activity: Activity) {
-        val intent = Intent(this, activity::class.java)
-        startActivity(intent)
     }
 }

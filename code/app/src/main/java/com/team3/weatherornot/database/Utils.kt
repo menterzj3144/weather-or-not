@@ -1,4 +1,4 @@
-package com.team3.weatherornot.DatabaseFiles
+package com.team3.weatherornot.database
 import android.content.Context
 import java.io.IOException
 

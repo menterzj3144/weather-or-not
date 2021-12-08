@@ -28,5 +28,6 @@
     <string name="night">Night</string>
     <string name="degreesF"> °F</string>
     <string name="last_updated">Last Updated:</string>
+    <string name="choose_an_activity">Choose an Activity</string>
 
 </resources>

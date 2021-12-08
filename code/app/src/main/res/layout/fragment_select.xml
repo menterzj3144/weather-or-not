@@ -21,7 +21,7 @@
             android:layout_marginTop="36dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:hint="Choose an Activity">
+            android:hint="@string/choose_an_activity">
 
             <AutoCompleteTextView
                 android:layout_width="match_parent"
@@ -41,7 +41,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/select_activity"
+                android:id="@+id/selected_activity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
