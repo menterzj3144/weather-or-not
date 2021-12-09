@@ -95,9 +95,104 @@
     "Activity_Desc": "Observing different species of birds outside",
     "Weather_Type": [
       "Clouds",
-      "Clear",
+      "Clear"
     ],
     "Min_Temperature": 32,
     "Max_Temperature": 100
+  },
+  {
+    "Activity_Id": 10,
+    "Activity_Name": "Ice Skating",
+    "Activity_Desc": "Skate on an outdoor rink",
+    "Weather_Type": [
+      "Clouds",
+      "Clear",
+      "Snow"
+    ],
+    "Min_Temperature": 15,
+    "Max_Temperature": 45
+  },
+  {
+    "Activity_Id": 11,
+    "Activity_Name": "Watch a Movie",
+    "Activity_Desc": "Watching a movie",
+    "Weather_Type": [
+      "Clouds",
+      "Clear",
+      "Snow",
+      "Rain"
+    ],
+    "Min_Temperature": -30,
+    "Max_Temperature": 100
+  },
+  {
+    "Activity_Id": 12,
+    "Activity_Name": "Sledding",
+    "Activity_Desc": "Sled down a hill",
+    "Weather_Type": [
+      "Clouds",
+      "Clear",
+      "Snow"
+    ],
+    "Min_Temperature": 15,
+    "Max_Temperature": 45
+  },
+  {
+    "Activity_Id": 13,
+    "Activity_Name": "Bowling",
+    "Activity_Desc": "Go bowling at a bowling alley",
+    "Weather_Type": [
+      "Clouds",
+      "Clear",
+      "Snow",
+      "Rain"
+    ],
+    "Min_Temperature": -30,
+    "Max_Temperature": 100
+  },
+  {
+    "Activity_Id": 14,
+    "Activity_Name": "Go to the Beach",
+    "Activity_Desc": "Relax on the beach and enjoy the sun",
+    "Weather_Type": [
+      "Clear"
+    ],
+    "Min_Temperature": 75,
+    "Max_Temperature": 100
+  },
+  {
+    "Activity_Id": 15,
+    "Activity_Name": "Boating",
+    "Activity_Desc": "Go boating on the lake",
+    "Weather_Type": [
+      "Clouds",
+      "Clear"
+    ],
+    "Min_Temperature": 75,
+    "Max_Temperature": 100
+  },
+  {
+    "Activity_Id": 16,
+    "Activity_Name": "Shopping",
+    "Activity_Desc": "Shop at the mall or local stores",
+    "Weather_Type": [
+      "Clouds",
+      "Clear",
+      "Snow",
+      "Rain"
+    ],
+    "Min_Temperature": -30,
+    "Max_Temperature": 100
+  },
+  {
+    "Activity_Id": 17,
+    "Activity_Name": "Camping",
+    "Activity_Desc": "Go camping at a state park or other campground",
+    "Weather_Type": [
+      "Clouds",
+      "Clear"
+    ],
+    "Min_Temperature": 60,
+    "Max_Temperature": 80
   }
 ]
