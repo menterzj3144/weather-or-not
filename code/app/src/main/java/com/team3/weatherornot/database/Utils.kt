@@ -2,6 +2,7 @@ package com.team3.weatherornot.database
 import android.content.Context
 import java.io.IOException
 
+//TODO() test for this?
 fun getJsonDataFromAsset(context: Context, fileName: String): String? {
     val jsonString: String
     try {
