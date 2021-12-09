@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.team3.weatherornot.R
 import com.team3.weatherornot.api.APIManager
+import com.team3.weatherornot.navigation.BottomMenuNavigation
 import com.team3.weatherornot.weather.Weather
 
 /**
@@ -23,7 +24,7 @@ class WeeklyWeatherActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.weekly_nav_view)
         bottomNavigationView.selectedItemId = R.id.navigation_weekly
         bottomNavigationView.setOnItemSelectedListener {
-            Navigation().onNavigationItemSelected(it, this)
+            BottomMenuNavigation().onNavigationItemSelected(it, this)
         }
 
         APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, ::populateTextViews)

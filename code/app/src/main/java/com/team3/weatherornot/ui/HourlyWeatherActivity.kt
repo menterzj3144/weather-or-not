@@ -9,6 +9,7 @@ import com.team3.weatherornot.R
 import com.team3.weatherornot.api.APIManager
 import com.team3.weatherornot.weather.Weather
 import com.team3.weatherornot.database.Dao
+import com.team3.weatherornot.navigation.BottomMenuNavigation
 
 /**
  * The activity for the hourly weather view
@@ -24,7 +25,7 @@ class HourlyWeatherActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.hourly_nav_view)
         bottomNavigationView.selectedItemId = R.id.navigation_hourly
         bottomNavigationView.setOnItemSelectedListener {
-            Navigation().onNavigationItemSelected(it, this)
+            BottomMenuNavigation().onNavigationItemSelected(it, this)
         }
         
         // Use this line to get the db activities and put them in a list.

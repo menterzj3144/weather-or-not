@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.team3.weatherornot.R
+import com.team3.weatherornot.navigation.BottomMenuNavigation
+import com.team3.weatherornot.navigation.ViewPagerAdapter
 
 /**
  * The activity for the suggest/select activity view
@@ -21,7 +23,7 @@ class SuggestSelectActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.suggest_select_nav_view)
         bottomNavigationView.selectedItemId = R.id.navigation_suggest_select
         bottomNavigationView.setOnItemSelectedListener {
-            Navigation().onNavigationItemSelected(it, this)
+            BottomMenuNavigation().onNavigationItemSelected(it, this)
         }
 
         val viewPager = findViewById<ViewPager2>(R.id.viewPager)

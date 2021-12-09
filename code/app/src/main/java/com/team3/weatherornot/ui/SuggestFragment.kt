@@ -7,9 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.TextView
+import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.textfield.TextInputLayout
 import com.team3.weatherornot.R
 import com.team3.weatherornot.api.APIManager
+import com.team3.weatherornot.database.Dao
+import com.team3.weatherornot.weather.DailyWeather
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -50,6 +54,29 @@ class SuggestFragment : Fragment() {
             val adapter = ArrayAdapter(requireContext(), R.layout.list_item, items)
             val textField = view.findViewById<TextInputLayout>(R.id.suggest_drop_down)
             (textField.editText as? AutoCompleteTextView)?.setAdapter(adapter)
+
+            // this will execute after something is selected in the dropdown menu
+            textField.editText?.doAfterTextChanged {
+                val selectedDayTV = view.findViewById<TextView>(R.id.suggest_date)
+                selectedDayTV.text = it.toString()
+
+                for (day in weather.weeklyWeather) {
+                    if (day.getDayAbbreviation() == it.toString()) {
+                        findActivitiesForDay(day, view)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun findActivitiesForDay(day: DailyWeather, view: View) {
+        val weatherActivities = Dao.getJson(view.context)
+        println(weatherActivities.toString())
+
+        for (activity in weatherActivities) {
+            if (activity.min_Temperature < day.minTemp || activity.max_Temperature > day.maxTemp) {
+                println(activity.activity_name)
+            }
         }
     }
 

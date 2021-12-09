@@ -1,11 +1,15 @@
-package com.team3.weatherornot.ui
+package com.team3.weatherornot.navigation
 
 import android.app.Activity
 import android.content.Intent
 import android.view.MenuItem
 import com.team3.weatherornot.R
+import com.team3.weatherornot.ui.HourlyWeatherActivity
+import com.team3.weatherornot.ui.SuggestSelectActivity
+import com.team3.weatherornot.ui.TodaysWeatherActivity
+import com.team3.weatherornot.ui.WeeklyWeatherActivity
 
-class Navigation {
+class BottomMenuNavigation {
     /**
      * Switches to an activity based on which menu item was selected
      *

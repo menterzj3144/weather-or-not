@@ -1,4 +1,4 @@
-package com.team3.weatherornot.ui
+package com.team3.weatherornot.navigation
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
