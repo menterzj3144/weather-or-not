@@ -33,7 +33,7 @@ class HourlyWeatherActivity : AppCompatActivity() {
         // exactly as it is.
         val weatherActivities = Dao.getJson(applicationContext)
         // Example printing out the activity description of the 6th activity in the list
-//        println(weatherActivities[6].activity_Desc)
+//        println(weatherActivities[6].Activity_Desc)
 
         APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, ::populateTextViews)
     }

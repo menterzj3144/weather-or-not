@@ -70,12 +70,12 @@ class SuggestFragment : Fragment() {
     }
 
     private fun findActivitiesForDay(day: DailyWeather, view: View) {
-        val weatherActivities = Dao.getJson(view.context)
+        val weatherActivities = Dao.getJson(view.context.applicationContext)
         println(weatherActivities.toString())
 
         for (activity in weatherActivities) {
-            if (activity.min_Temperature < day.minTemp || activity.max_Temperature > day.maxTemp) {
-                println(activity.activity_name)
+            if (activity.Min_Temperature < day.minTemp || activity.Max_Temperature > day.maxTemp) {
+                println(activity.Activity_Name)
             }
         }
     }
