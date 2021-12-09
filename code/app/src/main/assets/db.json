@@ -4,10 +4,9 @@
     "Activity_Name": "Running",
     "Activity_Desc": "Running outside",
     "Weather_Type": [
-      "Sunny",
       "Clear",
-      "Rainy",
-      "Cloudy"
+      "Rain",
+      "Clouds"
     ],
     "Min_Temperature": 32,
     "Max_Temperature": 90
@@ -17,10 +16,9 @@
     "Activity_Name": "Snowboarding",
     "Activity_Desc": "Downhill snowboarding",
     "Weather_Type": [
-      "Snowing",
+      "Snow",
       "Clear",
-      "Sunny",
-      "Cloudy"
+      "Clouds"
     ],
     "Min_Temperature": -10,
     "Max_Temperature": 32
@@ -30,49 +28,45 @@
     "Activity_Name": "Biking",
     "Activity_Desc": "Biking outdoors",
     "Weather_Type": [
-      "Sunny",
       "Clear",
-      "Cloudy"
+      "Clouds"
     ],
-    "Min_Temperature": 32,
-    "Max_Temperature": 99
+    "Min_Temperature": 40,
+    "Max_Temperature": 100
   },
   {
     "Activity_Id": 4,
     "Activity_Name": "Picnic",
     "Activity_Desc": "A Picnic outdoors",
     "Weather_Type": [
-      "Sunny",
       "Clear",
-      "Cloudy"
+      "Clouds"
     ],
-    "Min_Temperature": 32,
-    "Max_Temperature": 85
+    "Min_Temperature": 50,
+    "Max_Temperature": 90
   },
   {
     "Activity_Id": 5,
     "Activity_Name": "Indoor Basketball",
     "Activity_Desc": "Indoor 5v5 Basketball",
     "Weather_Type": [
-      "Sunny",
-      "Rainy",
-      "Snowing",
+      "Rain",
+      "Snow",
       "Clear",
-      "Cloudy"
+      "Clouds"
     ],
-    "Min_Temperature": 32,
-    "Max_Temperature": 90
+    "Min_Temperature": -20,
+    "Max_Temperature": 120
   },
   {
     "Activity_Id": 6,
     "Activity_Name": "Hiking",
     "Activity_Desc": "Hiking outdoors",
     "Weather_Type": [
-      "Sunny",
       "Clear",
-      "Cloudy"
+      "Clouds"
     ],
-    "Min_Temperature": 32,
+    "Min_Temperature": 40,
     "Max_Temperature": 92
   },
   {
@@ -82,7 +76,7 @@
     "Weather_Type": [
       "Clear"
     ],
-    "Min_Temperature": 32,
+    "Min_Temperature": 50,
     "Max_Temperature": 95
   },
   {
@@ -90,21 +84,20 @@
     "Activity_Name": "Cloud Watching",
     "Activity_Desc": "Watching clouds go by in the sky",
     "Weather_Type": [
-      "Cloudy"
+      "Clouds"
     ],
-    "Min_Temperature": 32,
-    "Max_Temperature": 93
+    "Min_Temperature": 50,
+    "Max_Temperature": 92
   },
   {
     "Activity_Id": 9,
     "Activity_Name": "Bird Watching",
     "Activity_Desc": "Observing different species of birds outside",
     "Weather_Type": [
-      "Cloudy",
+      "Clouds",
       "Clear",
-      "Sunny"
     ],
     "Min_Temperature": 32,
-    "Max_Temperature": 97
+    "Max_Temperature": 100
   }
 ]

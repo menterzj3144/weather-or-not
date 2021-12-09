@@ -1,12 +1,7 @@
 package com.team3.weatherornot.weather
 
-import android.os.Build
-import androidx.annotation.RequiresApi
-import java.text.SimpleDateFormat
-import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
-import java.util.*
 
 /**
  * Stores the data for the weather on a given day
@@ -25,5 +20,9 @@ class DailyWeather(val time: ZonedDateTime, val minTemp: Int, val maxTemp: Int, 
     //can write a test for this
     fun getDayAbbreviation(): String {
         return DateTimeFormatter.ofPattern("EEE").format(time)
+    }
+
+    fun getFullDayName(): String {
+        return DateTimeFormatter.ofPattern("EEEE").format(time)
     }
 }

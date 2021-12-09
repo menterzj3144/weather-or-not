@@ -29,5 +29,6 @@
     <string name="degreesF"> °F</string>
     <string name="last_updated">Last Updated:</string>
     <string name="choose_an_activity">Choose an Activity</string>
+    <string name="no_suggested_activity">No suggested activities for this day.</string>
 
 </resources>

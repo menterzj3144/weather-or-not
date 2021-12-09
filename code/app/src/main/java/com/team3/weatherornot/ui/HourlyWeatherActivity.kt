@@ -28,13 +28,6 @@ class HourlyWeatherActivity : AppCompatActivity() {
             BottomMenuNavigation().onNavigationItemSelected(it, this)
         }
         
-        // Use this line to get the db activities and put them in a list.
-        // applicationContext varies per activity so make sure to just copy the whole line with the dao.getJson(applicationContext) 
-        // exactly as it is.
-        val weatherActivities = Dao.getJson(applicationContext)
-        // Example printing out the activity description of the 6th activity in the list
-//        println(weatherActivities[6].Activity_Desc)
-
         APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, ::populateTextViews)
     }
 
