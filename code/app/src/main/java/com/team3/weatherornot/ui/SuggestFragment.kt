@@ -43,7 +43,7 @@ class SuggestFragment : Fragment() {
         // get the weather to fill the dropdown with the next 7 days
         APIManager.getInstance()?.getWeatherForLocation(44.8113, -91.4985) { weather ->
 
-            val items: List<String> = weather.weeklyWeather.map { it.getFullDayName() } //might want to format the day differently
+            val items: List<String> = weather.weeklyWeather.map { it.getDayNameAndDate() } //might want to format the day differently
             val adapter = ArrayAdapter(requireContext(), R.layout.list_item, items)
             val textField = view.findViewById<TextInputLayout>(R.id.suggest_drop_down)
             (textField.editText as? AutoCompleteTextView)?.setAdapter(adapter)
@@ -54,7 +54,7 @@ class SuggestFragment : Fragment() {
                 selectedDayTV.text = it.toString()
 
                 for (day in weather.weeklyWeather) {
-                    if (day.getFullDayName() == it.toString()) {
+                    if (day.getDayNameAndDate() == it.toString()) {
                         findActivitiesForDay(weatherActivities, day, view)
                     }
                 }

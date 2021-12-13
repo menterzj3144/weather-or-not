@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,7 +22,7 @@
             android:layout_marginTop="36dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:hint="Choose Day of The Week">
+            android:hint="@string/choose_day_of_the_week">
 
             <AutoCompleteTextView
                 android:layout_width="match_parent"
@@ -42,32 +43,34 @@
             >
 
             <TextView
-            android:id="@+id/suggest_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:gravity="center"
-            android:text=" Display Selected Day Here "
-            android:textColor="@color/black"
-            android:textSize="24sp" />
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                app:drawableStartCompat="@drawable/ic_baseline_today_24" />
 
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:drawableStart="@drawable/ic_baseline_today_24"/>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/suggest_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/suggest_label"
-            android:background="@drawable/rounded_background"
             android:padding="5dp"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_margin="5dp"
-            android:text=" Your Suggested Activities Are: "
+            android:text="@string/your_suggested_activities_are"
             android:textSize="24sp"
             android:textColor="@color/black"
-            android:gravity="bottom"/>
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/suggest_list"
@@ -76,9 +79,8 @@
             android:layout_margin="5dp"
             android:background="@drawable/rounded_background"
             android:gravity="center"
-            android:text="Display List of Activities Here"
             android:textColor="@color/black"
-            android:textSize="24dp" />
+            android:textSize="24sp" />
 
 
     </LinearLayout>

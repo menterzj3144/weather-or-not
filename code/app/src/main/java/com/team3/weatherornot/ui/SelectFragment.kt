@@ -1,6 +1,5 @@
 package com.team3.weatherornot.ui
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,7 +14,6 @@ import com.team3.weatherornot.R
 import com.team3.weatherornot.api.APIManager
 import com.team3.weatherornot.database.Dao
 import com.team3.weatherornot.database.WeatherActivity
-import com.team3.weatherornot.weather.DailyWeather
 
 /**
  * A simple [Fragment] subclass.
@@ -74,7 +72,7 @@ class SelectFragment : Fragment() {
             for (day in weather.weeklyWeather){
                 if (day.minTemp >= activity.Min_Temperature && day.maxTemp <= activity.Max_Temperature) {
                     if (activity.Weather_Type.contains(day.condition)) {
-                        dayListTV.append(day.getFullDayName() +"    "+day.minTemp +"° F - " +day.maxTemp +"° F"+ "\n")
+                        dayListTV.append(day.getFullDayName() +" ➝ "+day.minTemp +"°F - " +day.maxTemp +"°F"+ "\n")
                     }
                 }
             }

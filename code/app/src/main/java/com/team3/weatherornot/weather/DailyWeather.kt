@@ -25,4 +25,8 @@ class DailyWeather(val time: ZonedDateTime, val minTemp: Int, val maxTemp: Int, 
     fun getFullDayName(): String {
         return DateTimeFormatter.ofPattern("EEEE").format(time)
     }
+
+    fun getDayNameAndDate(): String {
+        return DateTimeFormatter.ofPattern("EEEE - M/d").format(time)
+    }
 }
