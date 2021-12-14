@@ -3,6 +3,7 @@
     package="com.team3.weatherornot">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name="WeatherOrNotApp"

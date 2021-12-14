@@ -7,6 +7,12 @@ import com.google.gson.reflect.TypeToken
 
 object Dao {
     //TODO() write test for this
+    /**
+     * Converts the JSON db file to a list of WeatherActivities
+     *
+     * @param applicationContext Application context
+     * @return a list of WeatherActivities
+     */
     fun getJson(applicationContext: Context): List<WeatherActivity> {
         val jsonFileString = getJsonDataFromAsset(applicationContext, "db.json")
 //        if (jsonFileString != null) {

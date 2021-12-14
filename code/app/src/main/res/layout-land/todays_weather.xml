@@ -64,7 +64,6 @@
                 android:id="@+id/update_time_tv"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="@string/last_updated"
                 android:gravity="center"
                 android:padding="5dp"
                 />

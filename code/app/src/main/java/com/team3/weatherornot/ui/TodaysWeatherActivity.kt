@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.team3.weatherornot.api.APIManager
 import com.team3.weatherornot.R
+import com.team3.weatherornot.location.MyLocationManager
 import com.team3.weatherornot.navigation.BottomMenuNavigation
 import com.team3.weatherornot.weather.Weather
 
@@ -16,6 +17,13 @@ import com.team3.weatherornot.weather.Weather
  * @constructor Create empty constructor for today's weather activity
  */
 class TodaysWeatherActivity : AppCompatActivity() {
+    private val locationManager = MyLocationManager(this, ::getWeatherForLocation)
+
+    /**
+     * Creates the activity
+     *
+     * @param savedInstanceState Saved instance state
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,7 +35,36 @@ class TodaysWeatherActivity : AppCompatActivity() {
             BottomMenuNavigation().onNavigationItemSelected(it, this)
         }
 
-        APIManager.getInstance()!!.getWeatherForLocation(44.8113, -91.4985, ::populateTextViews)
+        //get the current location and call getWeatherForLocation on current location
+        locationManager.requestPermissions()
+    }
+
+    /**
+     * Function to be used as a callback to call the API after getting location
+     *
+     * @param lat Lat the latitude coordinate of the current location
+     * @param lon Lon the longitude coordinate of the current location
+     */
+    private fun getWeatherForLocation(lat: Double, lon: Double) {
+        APIManager.getInstance()!!.getWeatherForLocation(lat, lon, ::populateTextViews)
+    }
+
+    /**
+     * Executes when the user either chooses to accept or deny permissions
+     *
+     * @param requestCode the request code of the permission
+     * @param permissions the permissions being requested
+     * @param grantResults the permissions granted
+     */
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        //handle location permission acceptance/denial
+        locationManager.onRequestPermissionsResult(requestCode, grantResults)
     }
 
     /**
@@ -61,7 +98,7 @@ class TodaysWeatherActivity : AppCompatActivity() {
         dayTempTV.text = (today.day.toString() + getString(R.string.degreesF))
         eveningTempTV.text = (today.evening.toString() + getString(R.string.degreesF))
         nightTempTV.text = (today.night.toString() + getString(R.string.degreesF))
-        updateTimeTV.append(weather.updateTime)
+        updateTimeTV.text = ("Last updated: " + weather.updateTime)
     }
 
     /**

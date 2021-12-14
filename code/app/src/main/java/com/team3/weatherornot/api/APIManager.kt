@@ -6,6 +6,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.team3.weatherornot.weather.Weather
+import java.util.*
 
 /**
  * Code found at https://stackoverflow.com/questions/28172496/android-volley-how-to-isolate-requests-in-another-class
@@ -23,18 +24,17 @@ class APIManager private constructor(context: Context) {
     //saved weather data so we don't make too many api calls
     var weather: Weather? = null
 
-
     /**
      * Get the weather object for a specific location from the saved data if it exists or by
      * calling the open weather API. Then call the listener function to get the result back to the caller
      *
      * @param lat the latitude coordinate of the location
      * @param lon the longitude coordinate of the location
-     * @param listener the listener function to be called when the API returns
+     * @param callback the listener function to be called when the API returns
      */
     fun getWeatherForLocation(lat: Double, lon: Double, callback: (weather: Weather) -> Unit) {
         //if there's already weather data for this location, return that
-        if (weather != null && (weather!!.lat == lat && weather!!.lon == lon)) {
+        if (weather != null && (weather!!.lat == lat && weather!!.lon == lon) && !shouldUpdate()) {
             callback(weather!!)
         } else {
             Thread {
@@ -42,7 +42,6 @@ class APIManager private constructor(context: Context) {
                     "https://api.openweathermap.org/data/2.5/onecall?appid=$apiKey" +
                             "&lat=$lat&lon=$lon&units=imperial"
 
-                println("API CALL")
                 // make api call.
                 val request = JsonObjectRequest(Request.Method.GET, apiURL, null,
                     {
@@ -59,8 +58,21 @@ class APIManager private constructor(context: Context) {
         }
     }
 
+    /**
+     * Checks if it has been more than 5 minutes since the last time the weather info has been updated
+     *
+     * @return true if it has been 5 minutes, false if not
+     */
+    private fun shouldUpdate(): Boolean {
+        val current = Calendar.getInstance().timeInMillis
+        val result = current - lastUpdate > 300000 //5 minutes
+        lastUpdate = current
+        return result
+    }
+
     companion object {
         private var instance: APIManager? = null
+        var lastUpdate: Long = 0
 
         /**
          * Instantiates the APIManager object for the app
@@ -70,7 +82,11 @@ class APIManager private constructor(context: Context) {
          */
         @Synchronized
         fun instantiate(context: Context): APIManager? {
-            if (null == instance) instance = APIManager(context)
+            if (instance == null) {
+                instance = APIManager(context)
+                lastUpdate = Calendar.getInstance().timeInMillis
+            }
+
             return instance
         }
 

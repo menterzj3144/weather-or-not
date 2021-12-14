@@ -3,6 +3,13 @@ import android.content.Context
 import java.io.IOException
 
 //TODO() test for this?
+/**
+ * Get json data from asset file.
+ *
+ * @param context application context
+ * @param fileName file name
+ * @return json string
+ */
 fun getJsonDataFromAsset(context: Context, fileName: String): String? {
     val jsonString: String
     try {

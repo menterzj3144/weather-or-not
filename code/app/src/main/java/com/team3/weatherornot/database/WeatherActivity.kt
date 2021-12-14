@@ -1,5 +1,16 @@
 package com.team3.weatherornot.database
 
+/**
+ * Data class to store activities from the db file
+ *
+ * @property Activity_Id id
+ * @property Activity_Name name
+ * @property Activity_Desc description
+ * @property Weather_Type weather condition
+ * @property Min_Temperature min temperature
+ * @property Max_Temperature max temperature
+ * @constructor Create [WeatherActivity]
+ */
 data class WeatherActivity(val Activity_Id: Int, val Activity_Name: String, val Activity_Desc: String,
                            val Weather_Type: Array<String>, val Min_Temperature: Int, val Max_Temperature: Int) {
     override fun equals(other: Any?): Boolean {

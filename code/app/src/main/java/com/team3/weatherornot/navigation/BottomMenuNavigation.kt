@@ -9,6 +9,11 @@ import com.team3.weatherornot.ui.SuggestSelectActivity
 import com.team3.weatherornot.ui.TodaysWeatherActivity
 import com.team3.weatherornot.ui.WeeklyWeatherActivity
 
+/**
+ * Bottom navigation menu class
+ *
+ * @constructor Create empty constructor for bottom menu navigation
+ */
 class BottomMenuNavigation {
     /**
      * Switches to an activity based on which menu item was selected

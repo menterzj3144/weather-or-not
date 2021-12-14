@@ -17,15 +17,30 @@ class DailyWeather(val time: ZonedDateTime, val minTemp: Int, val maxTemp: Int, 
                    val day: Int, val evening: Int, val night: Int, val precip: Int,
                    val condition: String, val weatherImgId: String) {
 
-    //can write a test for this
+    /**
+     * Format the date to get day abbreviation
+     *
+     * @return the formatted day
+     */
+    //TODO() can write a test for this
     fun getDayAbbreviation(): String {
         return DateTimeFormatter.ofPattern("EEE").format(time)
     }
 
+    /**
+     * Format the date to get the full day name
+     *
+     * @return the formatted day
+     */
     fun getFullDayName(): String {
         return DateTimeFormatter.ofPattern("EEEE").format(time)
     }
 
+    /**
+     * Format the date to get the full day name and the date
+     *
+     * @return the formatted day
+     */
     fun getDayNameAndDate(): String {
         return DateTimeFormatter.ofPattern("EEEE - M/d").format(time)
     }
