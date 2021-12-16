@@ -69,9 +69,11 @@ class SuggestFragment(private val weather: Weather, private val weatherActivitie
             val selectedDayTV = view.findViewById<TextView>(R.id.suggest_date)
             selectedDayTV.text = it.toString()
 
+            val activityListTV = view.findViewById<TextView>(R.id.suggest_list)
+
             for (day in weather.weeklyWeather) {
                 if (day.getDayNameAndDate() == it.toString()) {
-                    findActivitiesForDay(day, view)
+                    activityListTV.text = findActivitiesForDay(day)
                 }
             }
         }
@@ -81,24 +83,25 @@ class SuggestFragment(private val weather: Weather, private val weatherActivitie
      * Finds possible activities for a given day
      *
      * @param day the day to be compared against
-     * @param view the view to display to
+     * @return the suggested activities to be displayed
      */
     //TODO() write a test for this
-    private fun findActivitiesForDay(day: DailyWeather, view: View) {
-        val activityListTV = view.findViewById<TextView>(R.id.suggest_list)
-        activityListTV.text = ""
+    private fun findActivitiesForDay(day: DailyWeather): String {
+        var activitiesString = ""
 
         for (activity in weatherActivities) {
             //if the day temp range is within the activity temp range
             if (day.minTemp >= activity.Min_Temperature && day.maxTemp <= activity.Max_Temperature) {
                 if (activity.Weather_Type.contains(day.condition)) {
-                    activityListTV.append(activity.Activity_Name + "\n")
+                    activitiesString += activity.Activity_Name + "\n"
                 }
             }
         }
 
-        if (activityListTV.text.isEmpty()) {
-            activityListTV.text = R.string.no_suggested_activity.toString()
+        if (activitiesString.isEmpty()) {
+            activitiesString = R.string.no_suggested_activity.toString()
         }
+
+        return activitiesString
     }
 }
