@@ -62,7 +62,7 @@ class Weather(val lat: Double, val lon: Double, json: JSONObject) {
         val dt = convertTimeToDateTime(current.getLong("dt"))
         val condition = current.getJSONArray("weather").getJSONObject(0)
 
-        currentWeather = CurrentWeather(dt, current.getInt("temp"), hour.getInt("pop"),
+        currentWeather = CurrentWeather(dt, current.getInt("temp"), (hour.getDouble("pop") * 100).toInt(),
             condition.getString("main"), condition.getString("icon"))
     }
 
@@ -101,7 +101,7 @@ class Weather(val lat: Double, val lon: Double, json: JSONObject) {
             val dt = convertTimeToDateTime(hour.getLong("dt"))
             val condition = hour.getJSONArray("weather").getJSONObject(0)
 
-            hourlyWeather.add(CurrentWeather(dt, hour.getInt("temp"), hour.getInt("pop"),
+            hourlyWeather.add(CurrentWeather(dt, hour.getInt("temp"), (hour.getDouble("pop") * 100).toInt(),
                 condition.getString("main"), condition.getString("icon")))
 
             i++
@@ -123,7 +123,7 @@ class Weather(val lat: Double, val lon: Double, json: JSONObject) {
 
             weeklyWeather.add(DailyWeather(dt, temp.getInt("min"), temp.getInt("max"),
                 temp.getInt("morn"), temp.getInt("day"), temp.getInt("eve"),
-                temp.getInt("night"), day.getInt("pop"),
+                temp.getInt("night"), (day.getDouble("pop") * 100).toInt(),
                 condition.getString("main"), condition.getString("icon")))
 
             i++

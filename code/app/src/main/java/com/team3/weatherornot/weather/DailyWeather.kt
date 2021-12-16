@@ -13,9 +13,10 @@ import java.time.format.DateTimeFormatter
  * @property condition the sky condition for the day
  * @constructor Create [DailyWeather]
  */
-class DailyWeather(val time: ZonedDateTime, val minTemp: Int, val maxTemp: Int, val morning: Int,
-                   val day: Int, val evening: Int, val night: Int, val precip: Int,
-                   val condition: String, val weatherImgId: String) {
+class DailyWeather(
+    val time: ZonedDateTime, val minTemp: Int, val maxTemp: Int, val morning: Int,
+    val day: Int, val evening: Int, val night: Int, val precip: Int,
+    val condition: String, val weatherImgId: String) {
 
     /**
      * Format the date to get day abbreviation

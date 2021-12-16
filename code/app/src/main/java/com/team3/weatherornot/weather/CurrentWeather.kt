@@ -12,8 +12,9 @@ import java.time.format.DateTimeFormatter
  * @property condition the sky condition for the day
  * @constructor Create [CurrentWeather]
  */
-class CurrentWeather(val time: ZonedDateTime, val temp: Int, val precip: Int,
-                     val condition: String, val weatherImgId: String) {
+class CurrentWeather(
+    val time: ZonedDateTime, val temp: Int, val precip: Int,
+    val condition: String, val weatherImgId: String) {
 
     /**
      * Formats the date as hour am/pm (i.e. 8pm)
