@@ -87,6 +87,7 @@ class SelectFragment(private val weather: Weather, private val weatherActivities
      * @param activity the activity to be compared against
      * @param view the view to display to
      */
+    //TODO() Test for this?
     private fun findDayForActivity(activity: WeatherActivity, view: View) {
         val dayListTV = view.findViewById<TextView>(R.id.select_list)
         dayListTV.text = ""
