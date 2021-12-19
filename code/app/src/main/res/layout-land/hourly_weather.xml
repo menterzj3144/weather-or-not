@@ -4,172 +4,489 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_menu" >
+    <TableLayout
+        android:id="@+id/today_table"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="5dp"
+        android:paddingBottom="56dp"
+        android:weightSum="3">
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        <!-- Row 1 -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="5dp"
+            android:weightSum="4">
 
-    <TextView
-        android:id="@+id/mainHeaderText"
-        android:layout_width="165dp"
-        android:layout_height="202dp"
-        android:background="@drawable/rounded_background"
-        android:paddingLeft="20px"
-        android:paddingTop="20px"
-        android:password="false"
-        android:text="Eau Claire WI"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/nav_view"
-        app:layout_constraintHorizontal_bias="0.953"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085" />
+            <LinearLayout
+                android:id="@+id/hourlyGrid0"
+                style="@style/hourContainerLand"
+                android:layout_marginEnd="5dp">
 
-    <TextView
-        android:id="@+id/hourlyGrid"
-        android:layout_width="79dp"
-        android:layout_height="85dp"
-        android:background="@drawable/rounded_background"
-        android:paddingLeft="20px"
-        android:paddingTop="20px"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065" />
+                <LinearLayout
+                    style="@style/hourLandTextViews">
 
-    <TextView
-        android:id="@+id/hourlyGrid1"
-        android:layout_width="79dp"
-        android:layout_height="85dp"
-        android:background="@drawable/rounded_background"
-        android:paddingLeft="20px"
-        android:paddingTop="20px"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.18"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065" />
+                    <TextView
+                        android:id="@+id/time0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/grid3"
-        android:layout_width="79dp"
-        android:layout_height="85dp"
-        android:background="@drawable/rounded_background"
-        android:paddingLeft="20px"
-        android:paddingTop="20px"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.34"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065" />
+                    <TextView
+                        android:id="@+id/temp0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </LinearLayout>
 
-    <TextView
-        android:id="@+id/grid4"
-        android:layout_width="79dp"
-        android:layout_height="85dp"
-        android:background="@drawable/rounded_background"
-        android:paddingLeft="20px"
-        android:paddingTop="20px"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065" />
+                <ImageView
+                    android:id="@+id/gridImg0"
+                    style="@style/infoBoxTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:padding="10dp"
+                    android:src="@drawable/sunrise" />
 
-    <TextView
-        android:id="@+id/grid5"
-        android:layout_width="79dp"
-        android:layout_height="85dp"
-        android:background="@drawable/rounded_background"
-        android:paddingLeft="20px"
-        android:paddingTop="20px"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.662"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.353" />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/grid6"
-        android:layout_width="79dp"
-        android:layout_height="85dp"
-        android:background="@drawable/rounded_background"
-        android:paddingLeft="20px"
-        android:paddingTop="20px"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.621" />
+            <LinearLayout
+                android:id="@+id/hourlyGrid1"
+                style="@style/hourContainerLand"
+                android:layout_marginEnd="5dp">
 
-    <TextView
-        android:id="@+id/grid7"
-        android:layout_width="79dp"
-        android:layout_height="85dp"
-        android:background="@drawable/rounded_background"
-        android:paddingLeft="20px"
-        android:paddingTop="20px"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.18"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.621" />
+                <LinearLayout
+                    style="@style/hourLandTextViews">
 
-    <TextView
-        android:id="@+id/grid8"
-        android:layout_width="79dp"
-        android:layout_height="85dp"
-        android:background="@drawable/rounded_background"
-        android:paddingLeft="20px"
-        android:paddingTop="20px"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.341"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.621" />
+                    <TextView
+                        android:id="@+id/time1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/grid9"
-        android:layout_width="79dp"
-        android:layout_height="85dp"
-        android:background="@drawable/rounded_background"
-        android:paddingLeft="20px"
-        android:paddingTop="20px"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.621" />
+                    <TextView
+                        android:id="@+id/temp1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/gridImg1"
+                    style="@style/infoBoxTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:padding="10dp"
+                    android:src="@drawable/sunrise" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hourlyGrid2"
+                style="@style/hourContainerLand"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    style="@style/hourLandTextViews">
+
+                    <TextView
+                        android:id="@+id/time2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/temp2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/gridImg2"
+                    style="@style/infoBoxTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:padding="10dp"
+                    android:src="@drawable/sunrise" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hourlyGrid3"
+                style="@style/hourContainerLand"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    style="@style/hourLandTextViews">
+
+                    <TextView
+                        android:id="@+id/time3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/temp3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/gridImg3"
+                    style="@style/infoBoxTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:padding="10dp"
+                    android:src="@drawable/sunrise" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <!-- Row 2 -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="5dp"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:id="@+id/hourlyGrid4"
+                style="@style/hourContainerLand"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    style="@style/hourLandTextViews">
+
+                    <TextView
+                        android:id="@+id/time4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/temp4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/gridImg4"
+                    style="@style/infoBoxTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:padding="10dp"
+                    android:src="@drawable/sunrise" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hourlyGrid5"
+                style="@style/hourContainerLand"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    style="@style/hourLandTextViews">
+
+                    <TextView
+                        android:id="@+id/time5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/temp5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/gridImg5"
+                    style="@style/infoBoxTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:padding="10dp"
+                    android:src="@drawable/sunrise" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hourlyGrid6"
+                style="@style/hourContainerLand"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    style="@style/hourLandTextViews">
+
+                    <TextView
+                        android:id="@+id/time6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/temp6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/gridImg6"
+                    style="@style/infoBoxTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:padding="10dp"
+                    android:src="@drawable/sunrise" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hourlyGrid7"
+                style="@style/hourContainerLand"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    style="@style/hourLandTextViews">
+
+                    <TextView
+                        android:id="@+id/time7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/temp7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/gridImg7"
+                    style="@style/infoBoxTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:padding="10dp"
+                    android:src="@drawable/sunrise" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <!-- Row 3 -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="5dp"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:id="@+id/hourlyGrid8"
+                style="@style/hourContainerLand"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    style="@style/hourLandTextViews">
+
+                    <TextView
+                        android:id="@+id/time8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/temp8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/gridImg8"
+                    style="@style/infoBoxTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:padding="10dp"
+                    android:src="@drawable/sunrise" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hourlyGrid9"
+                style="@style/hourContainerLand"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    style="@style/hourLandTextViews">
+
+                    <TextView
+                        android:id="@+id/time9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/temp9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/gridImg9"
+                    style="@style/infoBoxTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:padding="10dp"
+                    android:src="@drawable/sunrise" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hourlyGrid10"
+                style="@style/hourContainerLand"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    style="@style/hourLandTextViews">
+
+                    <TextView
+                        android:id="@+id/time10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/temp10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/gridImg10"
+                    style="@style/infoBoxTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:padding="10dp"
+                    android:src="@drawable/sunrise" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/hourlyGrid11"
+                style="@style/hourContainerLand"
+                android:layout_marginEnd="5dp">
+
+                <LinearLayout
+                    style="@style/hourLandTextViews">
+
+                    <TextView
+                        android:id="@+id/time11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/temp11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/gridImg11"
+                    style="@style/infoBoxTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/weather_condition_image"
+                    android:padding="10dp"
+                    android:src="@drawable/sunrise" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TextView
+            android:id="@+id/update_time_tv"
+            android:gravity="center" />
+
+    </TableLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/hourly_nav_view"

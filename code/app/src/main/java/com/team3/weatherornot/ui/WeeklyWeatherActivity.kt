@@ -91,8 +91,8 @@ class WeeklyWeatherActivity : AppCompatActivity() {
             val resId = resources.getIdentifier("icon_" + day.weatherImgId, "drawable", packageName)
             imageView.setImageResource(resId)
 
-            minTemp.text = (day.minTemp.toString() + "°F")
-            maxTemp.text = (day.maxTemp.toString() + "°F")
+            minTemp.text = (day.minTemp.toString() + getString(R.string.degreesF))
+            maxTemp.text = (day.maxTemp.toString() + getString(R.string.degreesF))
             precipTV.text = (day.precip.toString() + "%")
             dayName.text = (day.getDayAbbreviation())
 
