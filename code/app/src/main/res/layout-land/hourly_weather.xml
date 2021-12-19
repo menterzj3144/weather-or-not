@@ -39,7 +39,7 @@
         app:layout_constraintVertical_bias="0.085" />
 
     <TextView
-        android:id="@+id/grid1"
+        android:id="@+id/hourlyGrid"
         android:layout_width="79dp"
         android:layout_height="85dp"
         android:background="@drawable/rounded_background"
@@ -54,7 +54,7 @@
         app:layout_constraintVertical_bias="0.065" />
 
     <TextView
-        android:id="@+id/grid2"
+        android:id="@+id/hourlyGrid1"
         android:layout_width="79dp"
         android:layout_height="85dp"
         android:background="@drawable/rounded_background"
