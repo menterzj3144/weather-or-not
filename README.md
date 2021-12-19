@@ -23,6 +23,8 @@ Simple mobile weather application that also uses weather information to show the
 
 [JSON Database File](https://github.com/menterzj3144/weather-or-not/blob/main/code/app/src/main/assets/db.json)
 
+[Utils](https://github.com/menterzj3144/weather-or-not/blob/main/code/app/src/main/java/com/team3/weatherornot/SuggestSelectUtils.kt) - Functions not related to UI
+
 [Tests](https://github.com/menterzj3144/weather-or-not/tree/main/code/app/src/test/java/com/team3/weatherornot)
 
 ## Future
