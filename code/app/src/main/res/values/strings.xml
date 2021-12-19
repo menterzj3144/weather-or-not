@@ -28,9 +28,6 @@
     <string name="night">Night</string>
     <string name="degreesF"> °F</string>
     <string name="choose_an_activity">Choose an Activity</string>
-    <string name="no_suggested_activity">No suggested activities for this day.</string>
-    <string name="no_selected_activity">No suggested days for this activity.</string>
-    <string name="no_suggested_days">No suggested days for this activity.</string>
     <string name="choose_day_of_the_week">Choose Day of The Week</string>
     <string name="your_suggested_activities_are">Your Suggested Activities Are:</string>
     <string name="your_suggested_days_are">Your Suggested Days Are:</string>

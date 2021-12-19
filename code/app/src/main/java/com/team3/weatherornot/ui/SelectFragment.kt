@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.textfield.TextInputLayout
 import com.team3.weatherornot.R
+import com.team3.weatherornot.SuggestSelectUtils
 import com.team3.weatherornot.database.WeatherActivity
 import com.team3.weatherornot.weather.Weather
 
@@ -77,36 +78,11 @@ class SelectFragment(private val weather: Weather, private val weatherActivities
 
             for (activity in weatherActivities) {
                 if (activity.Activity_Name == it.toString()) {
-                    dayListTV.text = findDayForActivity(activity)
+                    dayListTV.text = SuggestSelectUtils().findDayForActivity(weather.weeklyWeather, activity)
                 }
             }
         }
     }
-
-    /**
-     * Finds possible day for a given activity
-     *
-     * @param activity the activity to be compared against
-     * @return the suggested days to be displayed
-     */
-    //TODO() Test for this?
-    private fun findDayForActivity(activity: WeatherActivity): String {
-        var daysString = ""
-
-        for (day in weather.weeklyWeather){
-            if (day.minTemp >= activity.Min_Temperature && day.maxTemp <= activity.Max_Temperature) {
-                if (activity.Weather_Type.contains(day.condition)) {
-                    daysString += day.getFullDayName() +" ➝ "+day.minTemp +"°F - " +day.maxTemp +"°F"+ "\n"
-                }
-            }
-        }
-        if (daysString.isEmpty()) {
-            daysString = getString(R.string.no_suggested_days)
-        }
-
-        return daysString
-    }
-
 }
 
 
