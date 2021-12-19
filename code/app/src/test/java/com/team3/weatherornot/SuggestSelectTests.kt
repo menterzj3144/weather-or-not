@@ -16,7 +16,6 @@ class SuggestSelectTests {
     @Test
     fun testFindDayForActivity() {
         val weatherActivity = WeatherActivity(1, "Running", "Running outside", arrayOf("Clear", "Rain", "Clouds"), 32, 90)
-        val time = ZonedDateTime.of(2021, 12, 29, 0, 0, 0, 0, ZoneId.of("America/Chicago"))
 
         val weeklyWeather: ArrayList<DailyWeather> = ArrayList()
 
@@ -47,5 +46,23 @@ class SuggestSelectTests {
 
         val result = utils.findActivitiesForDay(weatherActivities, day).split("\n")
         assert(result.size == 3)
+    }
+
+    @Test
+    fun testFindDayForActivityNoResults() {
+        val weatherActivity = WeatherActivity(1, "Running", "Running outside", arrayOf("Clear", "Rain", "Clouds"), 32, 90)
+        val weeklyWeather: ArrayList<DailyWeather> = ArrayList()
+
+        val result = utils.findDayForActivity(weeklyWeather, weatherActivity)
+        assert(result == "No suggested days for this activity.")
+    }
+
+    @Test
+    fun testFindActivityForDayNoResults() {
+        val weatherActivities: ArrayList<WeatherActivity> = ArrayList()
+        val day = DailyWeather(time, 10, 24, 0, 0, 0, 0, 0, "Clouds", "0")
+
+        val result = utils.findActivitiesForDay(weatherActivities, day)
+        assert(result == "No suggested activities for this day.")
     }
 }
