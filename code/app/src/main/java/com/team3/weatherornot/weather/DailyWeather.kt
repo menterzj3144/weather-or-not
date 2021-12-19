@@ -23,7 +23,6 @@ class DailyWeather(
      *
      * @return the formatted day
      */
-    //TODO() can write a test for this
     fun getDayAbbreviation(): String {
         return DateTimeFormatter.ofPattern("EEE").format(time)
     }

@@ -6,7 +6,6 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 object Dao {
-    //TODO() write test for this
     /**
      * Converts the JSON db file to a list of WeatherActivities
      *

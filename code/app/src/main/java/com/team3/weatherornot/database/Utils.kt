@@ -2,7 +2,6 @@ package com.team3.weatherornot.database
 import android.content.Context
 import java.io.IOException
 
-//TODO() test for this?
 /**
  * Get json data from asset file.
  *
