@@ -1,6 +1,8 @@
 # weather-or-not
 Simple mobile weather application that also uses weather information to show the user the best days/times to do certain activities.
 
+Uses the [open weather map API](https://openweathermap.org/api)
+
 [Android Manifest](https://github.com/menterzj3144/weather-or-not/blob/main/code/app/src/main/AndroidManifest.xml)
 
 [WeatherOrNotApp](https://github.com/menterzj3144/weather-or-not/blob/main/code/app/src/main/java/com/team3/weatherornot/WeatherOrNotApp.kt) - Instantiates APIManager on app startup
